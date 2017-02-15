@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Articulo"  xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Articulo" type ="ProyectoAndroid.Dominio.Entidad.Articulo.ArticuloEN" />
+  </alias>
+  <resultMaps>
+    <resultMap id="resultMapArticulo" class="ProyectoAndroid.Dominio.Entidad.Articulo.ArticuloEN">
+      <result property ="CodigoArticulo"        column="ART_COD" />
+      <result property ="NombreArticulo"        column="ART_NOM" />
+      <result property ="DescripcionArticulo"   column="ART_DES" />
+      <result property ="PrecioArticulo"        column="ART_PRE" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <procedure id="uspArticuloSEL" resultMap="resultMapArticulo">
+      USP_ARTICULO_SEL
+    </procedure>
+  </statements>
+</sqlMap>

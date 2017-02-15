@@ -1,0 +1,7 @@
+C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\bin\Debug\ProyectoAndroid.Dominio.dll
+C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\bin\Debug\ProyectoAndroid.Dominio.pdb
+C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\bin\Debug\IBatisNet.Common.dll
+C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\bin\Debug\IBatisNet.DataMapper.dll
+C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.dll
+C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.pdb
