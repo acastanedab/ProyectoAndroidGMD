@@ -8,7 +8,6 @@ if($resultset=getSQLResultSet("SELECT SEG_COD,SEG_FEC,SEG_COR FROM `TB_SEGUIMIEN
 		echo json_encode($row);
 	}
 }
-
 ?>
 
 
