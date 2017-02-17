@@ -16,10 +16,9 @@ namespace ProyectoAndroid
         {
             config.Routes.MapHttpRoute(
                 name: "SeguimientoBuscarApi",
-                routeTemplate: "api/seguimiento/buscar",
-                defaults: new { controller  = "SeguimientoApi", action = "BuscarSeguimiento" }
+                routeTemplate: "api/seguimiento/buscarseguimientoarticulo/{codigoArticulo}",
+                defaults: new { controller  = "SeguimientoApi", action = "BuscarSeguimientoArticulo" }
             );
-
             config.Routes.MapHttpRoute(
                 name: "ArticuloBuscarApi",
                 routeTemplate: "api/articulo/buscar",

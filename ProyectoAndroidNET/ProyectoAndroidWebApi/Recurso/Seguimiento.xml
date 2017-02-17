@@ -15,8 +15,13 @@
       <result property ="Articulo.PrecioArticulo"     column="ART_PRE" />
     </resultMap>
   </resultMaps>
+  <parameterMaps>
+    <parameterMap id="paramSeguimientoSEL">
+      <parameter property="ART_COD" direction="input"/>
+    </parameterMap>
+  </parameterMaps>
   <statements>
-    <procedure id="uspSeguimientoSEL" resultMap="resultMapSeguimiento">
+    <procedure id="uspSeguimientoSEL" resultMap="resultMapSeguimiento" parameterMap="paramSeguimientoSEL">
         USP_SEGUIMIENTO_SEL
     </procedure>
   </statements>  

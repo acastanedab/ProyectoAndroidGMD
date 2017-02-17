@@ -11,5 +11,6 @@ namespace ProyectoAndroid.Dominio.Entidad.Seguimiento
         int ActualizarSeguimiento(SeguimientoEN seguimientoEN);
         List<SeguimientoEN> BuscarSeguimiento();
         SeguimientoEN ObtenerSeguimiento(SeguimientoEN seguimientoEN);
+        SeguimientoEN BuscarSeguimientoArticulo(long codigoArticulo);
     }
 }

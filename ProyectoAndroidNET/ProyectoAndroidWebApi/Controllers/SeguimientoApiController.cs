@@ -22,5 +22,12 @@ namespace ProyectoAndroid.Controllers
             resultado = seguimiento.BuscarSeguimiento();
             return resultado;
         }
+        [HttpGet]
+        public SeguimientoEN BuscarSeguimientoArticulo(long codigoArticulo)
+        {
+            SeguimientoEN resultado = new SeguimientoEN();
+            resultado = seguimiento.BuscarSeguimientoArticulo(codigoArticulo);
+            return resultado;
+        }
     }
 }

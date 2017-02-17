@@ -40,7 +40,9 @@ namespace ProyectoAndroid.Dominio.Entidad.Seguimiento
             
             try
             {
-                IList Lista = Mapper.Mapper.Instance().QueryForList("uspSeguimientoSEL", null);
+                IDictionary map = new Dictionary<string, Object>();
+                map.Add("ART_COD", null);
+                IList Lista = Mapper.Mapper.Instance().QueryForList("uspSeguimientoSEL", map);
                 return new List<SeguimientoEN>(Lista.Cast<SeguimientoEN>());
             }
             catch(Exception ex)
@@ -52,6 +54,22 @@ namespace ProyectoAndroid.Dominio.Entidad.Seguimiento
         public SeguimientoEN ObtenerSeguimiento(SeguimientoEN seguimientoEN)
         {
             throw new NotImplementedException();
+        }
+
+
+        public SeguimientoEN BuscarSeguimientoArticulo(long codigoArticulo)
+        {
+            try
+            {
+                IDictionary map = new Dictionary<string, Object>();
+                map.Add("ART_COD", codigoArticulo);
+                Object Seguimiento = Mapper.Mapper.Instance().QueryForObject("uspSeguimientoSEL", map);
+                return (SeguimientoEN)Seguimiento;
+            }
+            catch (Exception ex)
+            {
+                return new SeguimientoEN();
+            }
         }
     }
 }
