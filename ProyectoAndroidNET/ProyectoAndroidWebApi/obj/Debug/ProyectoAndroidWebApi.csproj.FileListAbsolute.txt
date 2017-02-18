@@ -83,6 +83,8 @@ C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\Pro
 C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid\obj\Debug\ProyectoAndroidWebApi.csprojResolveAssemblyReference.cache
 C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid\obj\Debug\ProyectoAndroid.dll
 C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid\obj\Debug\ProyectoAndroid.pdb
+C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\ProyectoAndroidWebApi.dll
+C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\ProyectoAndroidWebApi.pdb
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\Antlr3.Runtime.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\EntityFramework.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\Microsoft.Data.Edm.dll
@@ -164,7 +166,5 @@ C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\ru\System.Spa
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\zh-Hans\System.Spatial.resources.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\zh-Hant\System.Spatial.resources.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\obj\Debug\ProyectoAndroidWebApi.csprojResolveAssemblyReference.cache
-C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\ProyectoAndroidWebApi.dll
-C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\bin\ProyectoAndroidWebApi.pdb
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\obj\Debug\ProyectoAndroidWebApi.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroidWebApi\obj\Debug\ProyectoAndroidWebApi.pdb

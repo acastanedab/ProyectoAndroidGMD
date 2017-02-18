@@ -7,6 +7,6 @@ C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\Pro
 C:\Users\Administrador\Documents\Visual Studio 2012\Projects\ProyectoAndroid\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.pdb
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\bin\Debug\ProyectoAndroid.Dominio.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\bin\Debug\ProyectoAndroid.Dominio.pdb
-C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.csprojResolveAssemblyReference.cache
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.pdb
+C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.csprojResolveAssemblyReference.cache

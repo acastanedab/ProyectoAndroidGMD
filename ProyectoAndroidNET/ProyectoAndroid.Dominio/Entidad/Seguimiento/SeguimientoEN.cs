@@ -7,16 +7,17 @@ using ProyectoAndroid.Dominio;
 using ProyectoAndroid.Dominio.Entidad.Articulo;
 using ProyectoAndroid.Dominio.Mapper;
 using ProyectoAndroid.Dominio.Util;
-
+using System.Runtime.Serialization;
 namespace ProyectoAndroid.Dominio.Entidad.Seguimiento
 {
-    public class SeguimientoEN: Seguimiento
+    public class SeguimientoEN : Resultado,Seguimiento
     {
         #region Propiedades
         public long CodigoSeguimiento { get; set; }
         public DateTime FechaSeguimiento { get; set; }
         public decimal LatitudSeguimiento { get; set; }
         public decimal LongitudSeguimiento { get; set; }
+
         public ArticuloEN Articulo { get; set; }
         #endregion
 
@@ -63,12 +64,26 @@ namespace ProyectoAndroid.Dominio.Entidad.Seguimiento
             {
                 IDictionary map = new Dictionary<string, Object>();
                 map.Add("ART_COD", codigoArticulo);
-                Object Seguimiento = Mapper.Mapper.Instance().QueryForObject("uspSeguimientoSEL", map);
-                return (SeguimientoEN)Seguimiento;
+                Object seguimientoEN = Mapper.Mapper.Instance().QueryForObject("uspSeguimientoSEL", map);
+                var seguimiento = new SeguimientoEN
+                {
+                    CodigoSeguimiento = ((SeguimientoEN)seguimientoEN).CodigoSeguimiento,
+                    FechaSeguimiento = ((SeguimientoEN)seguimientoEN).FechaSeguimiento,
+                    LatitudSeguimiento = ((SeguimientoEN)seguimientoEN).LatitudSeguimiento,
+                    LongitudSeguimiento = ((SeguimientoEN)seguimientoEN).LongitudSeguimiento,
+                    Articulo = ((SeguimientoEN)seguimientoEN).Articulo,
+                    Mensaje = "OK",
+                    Estado = 1
+                };
+                return seguimiento;
             }
             catch (Exception ex)
             {
-                return new SeguimientoEN();
+                return new SeguimientoEN
+                {
+                    Mensaje = ex.Message,
+                    Estado = -1
+                };
             }
         }
     }

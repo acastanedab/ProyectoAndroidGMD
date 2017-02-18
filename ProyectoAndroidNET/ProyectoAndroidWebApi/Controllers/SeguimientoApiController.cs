@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ProyectoAndroid.Dominio.Entidad.Seguimiento;
+using ProyectoAndroid.Dominio.Util;
 
 namespace ProyectoAndroid.Controllers
 {
@@ -23,11 +25,12 @@ namespace ProyectoAndroid.Controllers
             return resultado;
         }
         [HttpGet]
-        public SeguimientoEN BuscarSeguimientoArticulo(long codigoArticulo)
+        public IDictionary BuscarSeguimientoArticulo(long codigoArticulo)
         {
-            SeguimientoEN resultado = new SeguimientoEN();
-            resultado = seguimiento.BuscarSeguimientoArticulo(codigoArticulo);
-            return resultado;
+            IDictionary data = new Dictionary<string,Object>();
+            var objeto = seguimiento.BuscarSeguimientoArticulo(codigoArticulo);
+            data.Add("Seguimiento", objeto);
+            return data;
         }
     }
 }
