@@ -12,6 +12,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 namespace ProyectoAndroid
 {
     // Nota: para obtener instrucciones sobre cómo habilitar el modo clásico de IIS6 o IIS7, 
@@ -28,7 +29,6 @@ namespace ProyectoAndroid
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             JsonMediaTypeFormatter jsonFormatter = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             JsonSerializerSettings jSettings = new Newtonsoft.Json.JsonSerializerSettings()
             {
@@ -36,6 +36,7 @@ namespace ProyectoAndroid
                 DateTimeZoneHandling = DateTimeZoneHandling.Utc,
                 NullValueHandling= NullValueHandling.Ignore,
             };
+            
             jSettings.Converters.Add(new MyDateTimeConvertor());
             jsonFormatter.SerializerSettings = jSettings;
 
@@ -49,7 +50,7 @@ namespace ProyectoAndroid
         }
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(((DateTime)value).ToString("yyyy/MM/dd hh:mm:ss"));
+            writer.WriteValue(((DateTime)value).ToString("dd/MM/yyyy hh:mm:ss"));
         }
     }
 }

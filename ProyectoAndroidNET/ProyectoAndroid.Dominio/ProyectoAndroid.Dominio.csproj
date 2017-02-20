@@ -49,9 +49,15 @@
   <ItemGroup>
     <Compile Include="Entidad\Articulo\Articulo.cs" />
     <Compile Include="Entidad\Articulo\ArticuloEN.cs" />
+    <Compile Include="Entidad\Pedido\Pedido.cs" />
+    <Compile Include="Entidad\Pedido\PedidoDetalle.cs" />
+    <Compile Include="Entidad\Pedido\PedidoDetalleEN.cs" />
+    <Compile Include="Entidad\Pedido\PedidoEN.cs" />
+    <Compile Include="Entidad\Pedido\PedidoSeguimiento.cs" />
+    <Compile Include="Entidad\Pedido\PedidoSeguimientoEN.cs" />
+    <Compile Include="Entidad\Usuario\Usuario.cs" />
+    <Compile Include="Entidad\Usuario\UsuarioEN.cs" />
     <Compile Include="Mapper\Mapper.cs" />
-    <Compile Include="Entidad\Seguimiento\Seguimiento.cs" />
-    <Compile Include="Entidad\Seguimiento\SeguimientoEN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Resultado.cs" />
     <Compile Include="Util\Enumerados.cs" />

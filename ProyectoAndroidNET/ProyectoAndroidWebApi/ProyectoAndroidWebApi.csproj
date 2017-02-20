@@ -151,7 +151,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ArticuloApiController.cs" />
-    <Compile Include="Controllers\SeguimientoApiController.cs" />
+    <Compile Include="Controllers\PedidoApiController.cs" />
+    <Compile Include="Controllers\UsuarioApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,7 +219,10 @@
     <None Include="Properties\PublishProfiles\appWeb.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Recurso\Articulo.xml" />
-    <Content Include="Recurso\Seguimiento.xml" />
+    <Content Include="Recurso\Pedido.xml" />
+    <Content Include="Recurso\PedidoDetalle.xml" />
+    <Content Include="Recurso\PedidoSeguimiento.xml" />
+    <Content Include="Recurso\Usuario.xml" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

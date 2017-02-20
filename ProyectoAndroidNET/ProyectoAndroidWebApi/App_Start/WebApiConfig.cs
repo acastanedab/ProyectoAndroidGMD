@@ -16,24 +16,65 @@ namespace ProyectoAndroid
         public static void Register(HttpConfiguration config)
         {
 
-            
-
-            config.Routes.MapHttpRoute(
-                name: "SeguimientoBuscarApi",
-                routeTemplate: "api/seguimiento/buscarseguimientoarticulo/{codigoArticulo}",
-                defaults: new { controller  = "SeguimientoApi", action = "BuscarSeguimientoArticulo" }
-            );
-            config.Routes.MapHttpRoute(
-                name: "ArticuloBuscarApi",
-                routeTemplate: "api/articulo/buscar",
-                defaults: new { controller = "ArticuloApi", action = "BuscarArticulo" }
-            );
-
             var json = config.Formatters.JsonFormatter;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
+
+
+            config.Routes.MapHttpRoute(
+                name: "ObtenerUsuarioApi",
+                routeTemplate: "api/usuario/obtener/{nombreUsuario}",
+                defaults: new { controller = "UsuarioApi", action = "ObtenerUsuario" }
+            );
+            config.Routes.MapHttpRoute(
+                name: "RegistrarUsuarioApi",
+                routeTemplate: "api/usuario/registrar",
+                defaults: new { controller = "UsuarioApi", action = "BuscarArticulo" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ListarArticuloApi",
+                routeTemplate: "api/articulo/listar",
+                defaults: new { controller = "ArticuloApi", action = "ListarArticulo" }
+            );
+            config.Routes.MapHttpRoute(
+                name: "RegistrarArticuloApi",
+                routeTemplate: "api/articulo/registrar",
+                defaults: new { controller = "ArticuloApi", action = "RegistrarArticulo" }
+            );
+
+
+            config.Routes.MapHttpRoute(
+                name: "RegistrarPedidoApi",
+                routeTemplate: "api/pedido/registrar",
+                defaults: new { controller = "PedidoApi", action = "RegistrarPedido" }
+            );
+
+
+            config.Routes.MapHttpRoute(
+                name: "RegistrarPedidoSeguimientoApi",
+                routeTemplate: "api/pedidoseguimiento/registrar",
+                defaults: new { controller = "PedidoApi", action = "RegistrarPedidoSeguimiento" }
+            );
+            config.Routes.MapHttpRoute(
+                name: "RegistrarPedidoDetalleApi",
+                routeTemplate: "api/pedidodetalle/registrar",
+                defaults: new { controller = "PedidoApi", action = "RegistrarPedidoDetalle" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ListarPedidoDetalleApi",
+                routeTemplate: "api/pedidodetalle/listar/{codigoPedido}",
+                defaults: new { controller = "PedidoApi", action = "ListarPedidoDetalle" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ListarPedidoSeguimientoApi",
+                routeTemplate: "api/pedidoseguimiento/listar/{codigoPedido}",
+                defaults: new { controller = "PedidoApi", action = "ListarPedidoSeguimiento" }
+            );
+
 
         }
-
     }
 }
