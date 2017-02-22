@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Usuario"  xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Usuario" type ="ProyectoAndroid.Dominio.Entidad.Usuario.UsuarioEN" />
+  </alias>
+  <resultMaps>
+    <resultMap id="resultMapUsuario" class="ProyectoAndroid.Dominio.Entidad.Usuario.UsuarioEN">
+      <result property ="CodigoUsuario"               column="USU_COD" />
+      <result property ="NombreUsuario"               column="USU_NOM" />
+      <result property ="ContraseniaUsuario"          column="USU_PASS" />
+      <result property ="CorreoUsuario"               column="USU_EMAIL" />
+      <result property ="CelularUsuario"              column="USU_CEL" />
+    </resultMap>
+  </resultMaps>
+  <parameterMaps>
+    <parameterMap id="paramUsuarioSEL">
+      <parameter property="USU_NOM" direction="input"/>
+    </parameterMap>
+    <parameterMap id="paramUsuarioINS">
+      <parameter property="USU_NOM" direction="input"/>
+      <parameter property="USU_PASS" direction="input"/>
+      <parameter property="USU_EMAIL" direction="input"/>
+      <parameter property="USU_CEL" direction="input"/>
+    </parameterMap>   
+  </parameterMaps>
+  <statements>
+    <procedure id="uspUsuarioSEL" resultMap="resultMapUsuario" parameterMap="paramUsuarioSEL">
+      USP_TB_USUARIO_SEL
+    </procedure>
+    <procedure id="uspUsuarioINS"  parameterMap="paramUsuarioINS">
+      USP_TB_USUARIO_INS
+    </procedure>    
+  </statements>
+</sqlMap>

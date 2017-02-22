@@ -12,9 +12,21 @@
       <result property ="PrecioArticulo"        column="ART_PRE" />
     </resultMap>
   </resultMaps>
+  <parameterMaps>
+    <parameterMap id="paramArticuloINS">
+      <parameter property="ART_COD" direction="input"/>
+      <parameter property="ART_NOM" direction="input"/>
+      <parameter property="ART_DES" direction="input"/>
+      <parameter property="ART_PRE" direction="input"/>
+    </parameterMap>
+  </parameterMaps>
   <statements>
+    <procedure id="uspArticuloINS" parameterMap="paramArticuloINS">
+      USP_TB_ARTICULO_INS
+    </procedure>
     <procedure id="uspArticuloSEL" resultMap="resultMapArticulo">
-      USP_ARTICULO_SEL
+      USP_TB_ARTICULO_SEL
     </procedure>
   </statements>
+  
 </sqlMap>

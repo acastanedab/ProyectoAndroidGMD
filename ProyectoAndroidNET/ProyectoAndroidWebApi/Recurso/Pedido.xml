@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Pedido"  xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Pedido" type ="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN" />
+  </alias>
+  <parameterMaps>
+    <parameterMap id="paramPedidoINS">
+      <parameter property="PED_DIR" direction="input"/>
+      <parameter property="PED_USU" direction="input"/>
+    </parameterMap>
+  </parameterMaps>
+  <statements>
+    <procedure id="uspPedidoINS"  parameterMap="paramPedidoINS">
+      USP_TB_PEDIDO_INS
+    </procedure>
+  </statements>
+</sqlMap>

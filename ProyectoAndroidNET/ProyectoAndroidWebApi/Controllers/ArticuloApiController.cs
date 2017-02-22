@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,11 +17,21 @@ namespace ProyectoAndroid.Controllers
             articulo = new ArticuloEN();
         }
         [HttpGet]
-        public List<ArticuloEN> BuscarArticulo()
+        public IDictionary ListarArticulo()
         {
-            List<ArticuloEN> resultado = new List<ArticuloEN>();
-            resultado = articulo.ListarArticulo();
-            return resultado;
+            IDictionary data = new Dictionary<string, Object>();
+            var resultado= articulo.ListarArticulo();
+            data.Add("Articulo", resultado);
+            return data;
+        }
+
+        [HttpPost]
+        public IDictionary RegistrarArticulo(ArticuloEN articuloEN)
+        {
+            IDictionary data = new Dictionary<string, Object>();
+            articulo.RegistrarArticulo(articuloEN);
+            data.Add("Articulo", articuloEN);
+            return data;
         }
     }
 }

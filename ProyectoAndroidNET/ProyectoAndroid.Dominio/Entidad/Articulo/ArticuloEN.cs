@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ProyectoAndroid.Dominio.Util;
 
 namespace ProyectoAndroid.Dominio.Entidad.Articulo
 {
-    public class ArticuloEN : Articulo
+    public class ArticuloEN : Resultado,Articulo
     {
 
         public ArticuloEN()
@@ -20,14 +21,24 @@ namespace ProyectoAndroid.Dominio.Entidad.Articulo
         public decimal PrecioArticulo { get; set; }
         #endregion
 
-        public int RegistrarArticulo(ArticuloEN articuloEN)
+        public int RegistrarArticulo(ArticuloEN articulo)
         {
-            throw new NotImplementedException();
-        }
-
-        public int ActualizarArticulo(ArticuloEN articuloEN)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                IDictionary map = new Dictionary<string, Object>();
+                map.Add("ART_NOM", articulo.NombreArticulo);
+                map.Add("ART_DES", articulo.DescripcionArticulo);
+                map.Add("ART_PRE", articulo.PrecioArticulo);
+                Mapper.Mapper.Instance().Insert("uspUsuarioINS", map);
+                articulo.Estado = 1;
+                articulo.Mensaje = "OK";
+            }
+            catch (Exception ex)
+            {
+                articulo.Estado = -1;
+                articulo.Mensaje = ex.Message;
+            }
+            return articulo.Estado;
         }
 
         public List<ArticuloEN> ListarArticulo()
@@ -35,17 +46,21 @@ namespace ProyectoAndroid.Dominio.Entidad.Articulo
             try
             {
                 IList Lista = Mapper.Mapper.Instance().QueryForList("uspArticuloSEL", null);
-                return new List<ArticuloEN>(Lista.Cast<ArticuloEN>());
+                var lista = new List<ArticuloEN>(Lista.Cast<ArticuloEN>());
+                return lista;
             }
             catch (Exception ex)
             {
-                return new List<ArticuloEN>();
+                var lista = new List<ArticuloEN>();
+                foreach (var item in lista)
+                {
+                    item.Mensaje = ex.Message;
+                    item.Estado = -1;
+                }
+                return lista;
             }
         }
 
-        public ArticuloEN ObtenerArticulo(ArticuloEN articuloEN)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

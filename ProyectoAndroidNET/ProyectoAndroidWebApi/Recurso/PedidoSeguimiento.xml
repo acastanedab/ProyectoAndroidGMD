@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PedidoSeguimiento"  xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PedidoSeguimiento" type ="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoSeguimientoEN" />
+  </alias>
+  <resultMaps>
+    <resultMap id="resultMapPedidoSeguimiento" class="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoSeguimientoEN">
+      <result property ="FechaPedidoSeguimiento"           column="PSE_FEC" />
+      <result property ="LatitudPedidoSeguimiento"         column="PSE_COR_LAT" />
+      <result property ="LongitudPedidoSeguimiento"        column="PSE_COR_LON" />
+    </resultMap>
+  </resultMaps>
+  <parameterMaps>
+    <parameterMap id="paramPedidoSeguimientoINS">
+      <parameter property="PSE_PED_COD " direction="input"/>
+      <parameter property="PSE_COR_LAT " direction="input"/>
+      <parameter property="PSE_COR_LON " direction="input"/>
+    </parameterMap>
+    <parameterMap id="paramPedidoSeguimientoSEL">
+      <parameter property="PSE_PED_COD"   direction="input"/>      
+    </parameterMap>
+  </parameterMaps>
+  <statements>
+    <procedure id="uspPedidoSeguimientoINS" parameterMap="paramPedidoSeguimientoINS">
+      USP_TB_PEDIDO_SEGUIMIENTO_INS
+    </procedure>
+    <procedure id="uspPedidoSeguimientoSEL" parameterMap="paramPedidoSeguimientoSEL" resultMap="resultMapPedidoSeguimiento">
+      USP_TB_PEDIDO_SEGUIMIENTO_SEL
+    </procedure>
+  </statements>
+
+</sqlMap>
