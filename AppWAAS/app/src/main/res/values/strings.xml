@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Pedidos WAAS</string>
+    <string name="app_name_perfil">Perfil</string>
+    <string name="app_name_pedido">Lista de Pedidos</string>
+    <string name="app_name_artitulo">Lista de Articulos</string>
+    <string name="app_name_home">Home</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Menu</string>
+    <string name="action_perfil">Perfil</string>
+    <string name="action_pedidos">Pedidos</string>
+    <string name="action_articulos">Articulos</string>
+    <string name="action_session">Cerrar Sesión</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
