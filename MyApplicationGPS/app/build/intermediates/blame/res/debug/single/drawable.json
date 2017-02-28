@@ -28,12 +28,24 @@
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_dark.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
+    },
+    {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
@@ -88,8 +100,16 @@
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_light.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_light.xml"
     },
     {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
@@ -124,6 +144,10 @@
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_light.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_light.xml"
+    },
+    {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_ratingbar_material.xml"
     },
@@ -134,6 +158,10 @@
     {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
     },
     {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
@@ -150,5 +178,9 @@
     {
         "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
         "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
+        "source": "D:\\ARCHIVOS\\TRABAJOS\\GMD\\Proyecto Android\\MyApplicationGPS\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
     }
 ]
