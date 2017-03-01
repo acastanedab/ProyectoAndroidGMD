@@ -21,13 +21,13 @@
         <activity android:name=".SingAccountActivity" android:theme="@style/AppTheme.Dark"></activity>
 
         <activity android:name=".GpsTestActivity">
+
+        </activity>
+        <activity android:name=".ListaPedidoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ListaPedidoActivity">
-
         </activity>
         <service android:name=".Servicios.ServicioGPS"/>
     </application>

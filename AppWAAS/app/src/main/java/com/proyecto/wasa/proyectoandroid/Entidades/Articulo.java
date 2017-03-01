@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by AngelEloy on 28/02/2017.
  */
 
-public class PedidoBE implements Serializable {
+public class Articulo implements Serializable {
     private Integer CodigoArticulo;
     private String NombreArticulo;
     private String DescripcionArticulo;

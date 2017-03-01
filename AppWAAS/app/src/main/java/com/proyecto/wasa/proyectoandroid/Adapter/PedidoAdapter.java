@@ -1,7 +1,6 @@
 package com.proyecto.wasa.proyectoandroid.Adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
-import com.proyecto.wasa.proyectoandroid.Entidades.PedidoBE;
+import com.proyecto.wasa.proyectoandroid.Entidades.Articulo;
 import com.proyecto.wasa.proyectoandroid.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +19,7 @@ import java.util.List;
 
 public class PedidoAdapter extends BaseAdapter {
 
-    List<PedidoBE> listaPreferencia;
+    List<Articulo> listaPreferencia;
     static class ViewHolder{
         TextView textViewCodigoArticulo;
         TextView textViewNombreArticulo;
@@ -31,7 +29,7 @@ public class PedidoAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
 
-    public PedidoAdapter(Context context, List<PedidoBE> listaPreferencia) {
+    public PedidoAdapter(Context context, List<Articulo> listaPreferencia) {
         inflater = LayoutInflater.from(context);
         this.listaPreferencia = listaPreferencia;
     }
