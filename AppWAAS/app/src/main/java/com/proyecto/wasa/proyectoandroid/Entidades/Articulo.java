@@ -1,24 +1,26 @@
 package com.proyecto.wasa.proyectoandroid.Entidades;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by AngelEloy on 28/02/2017.
  */
+public class Articulo  implements Serializable {
 
-public class Articulo implements Serializable {
-    private Integer CodigoArticulo;
+    private long CodigoArticulo;
     private String NombreArticulo;
     private String DescripcionArticulo;
     private Double PrecioArticulo;
-    private String Estado;
+    private int Estado;
 
-
-    public Integer getCodigoArticulo() {
+    public long getCodigoArticulo() {
         return CodigoArticulo;
     }
 
-    public void setCodigoArticulo(Integer codigoArticulo) {
+    public void setCodigoArticulo(long codigoArticulo) {
         CodigoArticulo = codigoArticulo;
     }
 
@@ -46,11 +48,12 @@ public class Articulo implements Serializable {
         PrecioArticulo = precioArticulo;
     }
 
-    public String getEstado() {
+
+    public int getEstado() {
         return Estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         Estado = estado;
     }
 }

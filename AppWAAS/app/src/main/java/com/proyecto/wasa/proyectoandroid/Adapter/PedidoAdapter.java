@@ -62,10 +62,10 @@ public class PedidoAdapter extends BaseAdapter {
         }else {
             holder = (ViewHolder)convertView.getTag();
         }
-        holder.textViewCodigoArticulo.setText(listaPreferencia.get(position).getCodigoArticulo());
+        //holder.textViewCodigoArticulo.setText(listaPreferencia.get(position).getCodigoArticulo().);
         holder.textViewNombreArticulo.setText(listaPreferencia.get(position).getNombreArticulo());
         holder.textViewDescripcionArticulo.setText(listaPreferencia.get(position).getDescripcionArticulo());
-        holder.textViewPrecioArticulo.setText(listaPreferencia.get(position).getPrecioArticulo().toString());
+        //holder.textViewPrecioArticulo.setText(listaPreferencia.get(position).getPrecioArticulo().toString());
 
         return convertView;
     }
