@@ -6,18 +6,13 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
 import com.proyecto.wasa.proyectoandroid.Adapter.ArrayAdapterFactory;
-import com.proyecto.wasa.proyectoandroid.Adapter.PedidoAdapter;
+import com.proyecto.wasa.proyectoandroid.Adapter.ArticuloAdapter;
 import com.proyecto.wasa.proyectoandroid.Entidades.Articulo;
-import com.proyecto.wasa.proyectoandroid.Servicios.PedidoService;
+import com.proyecto.wasa.proyectoandroid.Servicios.ArticuloService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -26,7 +21,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ListaPedidoActivity extends AppCompatActivity {
+public class ListaArticuloActivity extends AppCompatActivity {
 
     private ListView listPedidos;
     @Override
@@ -40,25 +35,28 @@ public class ListaPedidoActivity extends AppCompatActivity {
                 .registerTypeAdapterFactory(new ArrayAdapterFactory())
                 .create();
 
+        String URL = "http://www.kallpasedano.com/proyecto/api/";
+        //String URL = "http://192.168.1.12/ProyectoAndroidWebApi/api/";
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://www.kallpasedano.com/proyecto/api/")
+                .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        PedidoService pedidoService = retrofit.create(PedidoService.class);
-        Call<List<Articulo>> call = pedidoService.getArticulo();
+        ArticuloService articuloService = retrofit.create(ArticuloService.class);
+        Call<List<Articulo>> call = articuloService.getArticulo();
 
         call.enqueue(new Callback<List<Articulo>>() {
             @Override
             public void onResponse(Call<List<Articulo>> call, Response<List<Articulo>> response) {
-              Log.i("Hola: ", "ok");
-              PedidoAdapter pedidoAdapter = new PedidoAdapter(ListaPedidoActivity.this, response.body());
-              listPedidos.setAdapter(pedidoAdapter);
+              List<Articulo> articulos= response.body();
+
+              ArticuloAdapter articuloAdapter = new ArticuloAdapter(ListaArticuloActivity.this, articulos);
+              listPedidos.setAdapter(articuloAdapter);
             }
 
             @Override
             public void onFailure(Call<List<Articulo>> call, Throwable throwable) {
-                Toast.makeText(ListaPedidoActivity.this, "Error: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListaArticuloActivity.this, "Error: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.i("CTM: ", throwable.getMessage());
             }
         });

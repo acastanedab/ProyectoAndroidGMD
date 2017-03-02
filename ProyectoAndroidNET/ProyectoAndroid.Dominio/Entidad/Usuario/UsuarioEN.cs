@@ -24,11 +24,11 @@ namespace ProyectoAndroid.Dominio.Entidad.Usuario
             try
             {
                 IDictionary map = new Dictionary<string, Object>();
-                map.Add("USU_NOM", usuario.CodigoUsuario);
+                map.Add("USU_NOM", usuario.NombreUsuario);
                 map.Add("USU_PASS", usuario.ContraseniaUsuario);
                 map.Add("USU_EMAIL", usuario.CorreoUsuario);
                 map.Add("USU_CEL", usuario.CelularUsuario);
-                Mapper.Mapper.Instance().Insert("uspUsuarioINS", map);
+                usuario.CodigoUsuario =(long) Mapper.Mapper.Instance().Insert("uspUsuarioINS", map);
                 usuario.Estado = 1;
                 usuario.Mensaje = "OK";
             }
@@ -37,15 +37,15 @@ namespace ProyectoAndroid.Dominio.Entidad.Usuario
                 usuario.Mensaje = ex.Message;
                 usuario.Estado = -1;
             }
-            return usuario.Estado;
+            return (int)usuario.Estado;
         }
 
-        public UsuarioEN ObtenerUsuario(string nombreUsuario)
+        public UsuarioEN ObtenerUsuario(string correoUsuario)
         {
             try
             {
                 IDictionary map = new Dictionary<string, Object>();
-                map.Add("USU_NOM", nombreUsuario);
+                map.Add("USU_EMAIL", correoUsuario);
                 Object usuarioEN = Mapper.Mapper.Instance().QueryForObject("uspUsuarioSEL", map);
                 var usuario = new UsuarioEN
                 {

@@ -6,6 +6,6 @@ namespace ProyectoAndroid.Dominio.Util
     public class Resultado
     {
         public string Mensaje { get; set; }
-        public int Estado { get; set; }
+        public int? Estado { get; set; }
     }
 }

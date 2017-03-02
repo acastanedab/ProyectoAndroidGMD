@@ -13,6 +13,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
         {
             Pedido = new PedidoEN();
         }
+        public long CodigoPedidoSeguimiento { get; set; }
         public DateTime FechaPedidoSeguimiento { get; set; }
         public string LatitudPedidoSeguimiento { get; set; }
         public string LongitudPedidoSeguimiento { get; set; }
@@ -26,7 +27,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
                 map.Add("PSE_PED_COD", pedidoSeguimiento.Pedido.CodigoPedido );
                 map.Add("PSE_COR_LAT", pedidoSeguimiento.LatitudPedidoSeguimiento);
                 map.Add("PSE_COR_LON", pedidoSeguimiento.LongitudPedidoSeguimiento);
-                Mapper.Mapper.Instance().Insert("uspPedidoSeguimientoINS", map);
+                pedidoSeguimiento.CodigoPedidoSeguimiento = (long) Mapper.Mapper.Instance().Insert("uspPedidoSeguimientoINS", map);
                 pedidoSeguimiento.Estado = 1;
                 pedidoSeguimiento.Mensaje = "OK";
             }
@@ -35,7 +36,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
                 pedidoSeguimiento.Estado = -1;
                 pedidoSeguimiento.Mensaje = ex.Message;
             }
-            return pedidoSeguimiento.Estado;
+            return (int)pedidoSeguimiento.Estado;
         }
 
         public List<PedidoSeguimientoEN> ListarPedidoSeguimiento(long codigoPedido)

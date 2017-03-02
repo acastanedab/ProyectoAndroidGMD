@@ -7,12 +7,12 @@ import java.util.Date;
  * Created by GMD on 28/02/2017.
  */
 
-public class PedidoSeguimientoBE implements Serializable {
+public class PedidoSeguimiento implements Serializable {
     private Date fechaPedidoSeguimiento;
     private String latitudPedidoSeguimiento;
     private String longitudPedidoSeguimiento;
 
-    public PedidoSeguimientoBE() {
+    public PedidoSeguimiento() {
 
     }
 

@@ -17,7 +17,7 @@ import java.util.List;
  * Created by AngelEloy on 28/02/2017.
  */
 
-public class PedidoAdapter extends BaseAdapter {
+public class ArticuloAdapter extends BaseAdapter {
 
     List<Articulo> listaPreferencia;
     static class ViewHolder{
@@ -29,7 +29,7 @@ public class PedidoAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
 
-    public PedidoAdapter(Context context, List<Articulo> listaPreferencia) {
+    public ArticuloAdapter(Context context, List<Articulo> listaPreferencia) {
         inflater = LayoutInflater.from(context);
         this.listaPreferencia = listaPreferencia;
     }
@@ -62,10 +62,10 @@ public class PedidoAdapter extends BaseAdapter {
         }else {
             holder = (ViewHolder)convertView.getTag();
         }
-        //holder.textViewCodigoArticulo.setText(listaPreferencia.get(position).getCodigoArticulo().);
+        holder.textViewCodigoArticulo.setText(new Long(listaPreferencia.get(position).getCodigoArticulo()).toString());
         holder.textViewNombreArticulo.setText(listaPreferencia.get(position).getNombreArticulo());
         holder.textViewDescripcionArticulo.setText(listaPreferencia.get(position).getDescripcionArticulo());
-        //holder.textViewPrecioArticulo.setText(listaPreferencia.get(position).getPrecioArticulo().toString());
+        holder.textViewPrecioArticulo.setText(listaPreferencia.get(position).getPrecioArticulo().toString());
 
         return convertView;
     }

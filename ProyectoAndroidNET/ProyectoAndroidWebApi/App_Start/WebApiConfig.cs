@@ -29,7 +29,7 @@ namespace ProyectoAndroid
             config.Routes.MapHttpRoute(
                 name: "RegistrarUsuarioApi",
                 routeTemplate: "api/usuario/registrar",
-                defaults: new { controller = "UsuarioApi", action = "BuscarArticulo" }
+                defaults: new { controller = "UsuarioApi", action = "RegistrarUsuario" }
             );
 
             config.Routes.MapHttpRoute(

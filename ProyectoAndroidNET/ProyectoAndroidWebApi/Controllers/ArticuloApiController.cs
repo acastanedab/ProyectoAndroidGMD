@@ -17,21 +17,17 @@ namespace ProyectoAndroid.Controllers
             articulo = new ArticuloEN();
         }
         [HttpGet]
-        public IDictionary ListarArticulo()
+        public List<ArticuloEN> ListarArticulo()
         {
-            IDictionary data = new Dictionary<string, Object>();
             var resultado= articulo.ListarArticulo();
-            data.Add("Articulo", resultado);
-            return data;
+            return resultado;
         }
 
         [HttpPost]
-        public IDictionary RegistrarArticulo(ArticuloEN articuloEN)
+        public Object RegistrarArticulo(ArticuloEN articuloEN)
         {
-            IDictionary data = new Dictionary<string, Object>();
             articulo.RegistrarArticulo(articuloEN);
-            data.Add("Articulo", articuloEN);
-            return data;
+            return articuloEN;
         }
     }
 }

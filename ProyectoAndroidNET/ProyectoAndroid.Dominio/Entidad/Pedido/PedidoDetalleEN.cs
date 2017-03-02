@@ -15,6 +15,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
             Pedido = new PedidoEN();
             Articulo = new ArticuloEN();
         }
+        public long CodigoPedidoDetalle { get; set; }
         public decimal PrecioPedidoDetalle { get; set; }
         public int CantidadPedidoDetalle { get; set; }
         public decimal SubTotalPedidoDetalle { get; set; }
@@ -41,7 +42,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
                 pedidoDetalle.Estado = -1;
                 pedidoDetalle.Mensaje = ex.Message;
             }
-            return pedidoDetalle.Estado;
+            return (int)pedidoDetalle.Estado;
         }
 
         public List<PedidoDetalleEN> ListarPedidoDetalle(long codigoPedido)

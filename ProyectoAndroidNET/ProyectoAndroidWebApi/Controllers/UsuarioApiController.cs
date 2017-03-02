@@ -18,20 +18,16 @@ namespace ProyectoAndroid.Controllers
             
         }
         [HttpGet]
-        public IDictionary ObtenerUsuario(string nombreUsuario)
+        public UsuarioEN ObtenerUsuario(string nombreUsuario)
         {
-            IDictionary data = new Dictionary<string, Object>();
             var resultado =  usuario.ObtenerUsuario(nombreUsuario);
-            data.Add("Usuario", resultado);
-            return data;
+            return resultado;
         }
         [HttpPost]
-        public IDictionary RegistrarUsuario(UsuarioEN usuarioEN)
+        public Object RegistrarUsuario(UsuarioEN usuarioEN)
         {
-            IDictionary data = new Dictionary<string, Object>();
             usuario.RegistrarUsuario(usuarioEN);
-            data.Add("Usuario", usuarioEN);
-            return data;
+            return usuarioEN;
         }
     }
 }

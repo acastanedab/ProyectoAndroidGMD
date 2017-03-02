@@ -30,7 +30,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
                 IDictionary map = new Dictionary<string, Object>();
                 map.Add("PED_DIR", pedido.FechaPedido);
                 map.Add("PED_USU", pedido.Usuario.CodigoUsuario);
-                Mapper.Mapper.Instance().Insert("uspPedidoINS", map);
+                pedido.CodigoPedido = (long) Mapper.Mapper.Instance().Insert("uspPedidoINS", map);
                 pedido.Estado = 1;
                 pedido.Mensaje = "OK";
             }
@@ -39,7 +39,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
                 pedido.Estado = -1;
                 pedido.Mensaje = ex.Message;
             }
-            return pedido.Estado;
+            return (int)pedido.Estado;
         }
     }
 }

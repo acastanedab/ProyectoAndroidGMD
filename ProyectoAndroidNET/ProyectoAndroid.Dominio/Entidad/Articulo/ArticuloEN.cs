@@ -29,7 +29,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Articulo
                 map.Add("ART_NOM", articulo.NombreArticulo);
                 map.Add("ART_DES", articulo.DescripcionArticulo);
                 map.Add("ART_PRE", articulo.PrecioArticulo);
-                Mapper.Mapper.Instance().Insert("uspUsuarioINS", map);
+                articulo.CodigoArticulo = (long) Mapper.Mapper.Instance().Insert("uspArticuloINS", map);
                 articulo.Estado = 1;
                 articulo.Mensaje = "OK";
             }
@@ -38,7 +38,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Articulo
                 articulo.Estado = -1;
                 articulo.Mensaje = ex.Message;
             }
-            return articulo.Estado;
+            return (int)articulo.Estado;
         }
 
         public List<ArticuloEN> ListarArticulo()
