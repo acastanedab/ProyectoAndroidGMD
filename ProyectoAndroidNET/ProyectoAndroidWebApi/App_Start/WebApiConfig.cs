@@ -23,7 +23,7 @@ namespace ProyectoAndroid
 
             config.Routes.MapHttpRoute(
                 name: "ObtenerUsuarioApi",
-                routeTemplate: "api/usuario/obtener/{nombreUsuario}",
+                routeTemplate: "api/usuario/obtener/",
                 defaults: new { controller = "UsuarioApi", action = "ObtenerUsuario" }
             );
             config.Routes.MapHttpRoute(

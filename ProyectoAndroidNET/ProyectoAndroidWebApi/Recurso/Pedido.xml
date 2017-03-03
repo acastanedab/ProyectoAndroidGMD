@@ -4,15 +4,76 @@
   <alias>
     <typeAlias alias="Pedido" type ="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN" />
   </alias>
+
+  <resultMaps>
+    <resultMap id="resultMapPedidoDetalle" class="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN">
+      <result property ="PedidoDetalle.Articulo.NombreArticulo"             column="ART_NOM" />
+      <result property ="PedidoDetalle.Articulo.DescripcionArticulo"        column="ART_DES" />
+      <result property ="PedidoDetalle.PrecioPedidoDetalle"                 column="PDE_PRE" />
+      <result property ="PedidoDetalle.CantidadPedidoDetalle"               column="PDE_CAN" />
+      <result property ="PedidoDetalle.SubTotalPedidoDetalle"               column="PDE_SUB" />
+    </resultMap>
+
+    <resultMap id="resultMapPedidoSeguimiento" class="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN">
+      <result property ="PedidoSeguimiento.FechaPedidoSeguimiento"           column="PSE_FEC" />
+      <result property ="PedidoSeguimiento.LatitudPedidoSeguimiento"         column="PSE_COR_LAT" />
+      <result property ="PedidoSeguimiento.LongitudPedidoSeguimiento"        column="PSE_COR_LON" />
+    </resultMap>
+    
+  </resultMaps>
+  
   <parameterMaps>
     <parameterMap id="paramPedidoINS">
       <parameter property="PED_DIR" direction="input"/>
       <parameter property="PED_USU" direction="input"/>
     </parameterMap>
+
+
+    <parameterMap id="paramPedidoDetalleINS">
+      <parameter property="PDE_PED_COD"   direction="input"/>
+      <parameter property="PDE_ART_COD"   direction="input"/>
+      <parameter property="PDE_CAN"       direction="input"/>
+    </parameterMap>
+    <parameterMap id="paramPedidoDetalleSEL">
+      <parameter property="PDE_PED_COD"   direction="input"/>
+    </parameterMap>
+
+
+    <parameterMap id="paramPedidoSeguimientoINS">
+      <parameter property="PSE_PED_COD " direction="input"/>
+      <parameter property="PSE_COR_LAT " direction="input"/>
+      <parameter property="PSE_COR_LON " direction="input"/>
+    </parameterMap>
+    <parameterMap id="paramPedidoSeguimientoSEL">
+      <parameter property="PSE_PED_COD"   direction="input"/>
+    </parameterMap>
+    
   </parameterMaps>
+  
+  
+  
   <statements>
     <procedure id="uspPedidoINS"  parameterMap="paramPedidoINS">
       USP_TB_PEDIDO_INS
     </procedure>
+
+    <procedure id="uspPedidoDetalleINS" parameterMap="paramPedidoDetalleINS">
+      USP_TB_PEDIDO_DETALLE_INS
+    </procedure>
+    <procedure id="uspPedidoDetalleSEL" parameterMap="paramPedidoDetalleSEL" resultMap="resultMapPedidoDetalle">
+      USP_TB_PEDIDO_DETALLE_SEL
+    </procedure>
+    
+    <procedure id="uspPedidoSeguimientoINS" parameterMap="paramPedidoSeguimientoINS">
+      USP_TB_PEDIDO_SEGUIMIENTO_INS
+    </procedure>
+    <procedure id="uspPedidoSeguimientoSEL" parameterMap="paramPedidoSeguimientoSEL" resultMap="resultMapPedidoSeguimiento">
+      USP_TB_PEDIDO_SEGUIMIENTO_SEL
+    </procedure>
   </statements>
+  
+  
+  
+  
+  
 </sqlMap>

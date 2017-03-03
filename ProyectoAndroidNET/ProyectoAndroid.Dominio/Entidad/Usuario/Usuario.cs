@@ -8,6 +8,6 @@ namespace ProyectoAndroid.Dominio.Entidad.Usuario
     public interface Usuario
     {
         int RegistrarUsuario(UsuarioEN usuario);
-        UsuarioEN ObtenerUsuario(string correoUsuario);
+        UsuarioEN ObtenerUsuario(string correo, string contrasenia);
     }
 }

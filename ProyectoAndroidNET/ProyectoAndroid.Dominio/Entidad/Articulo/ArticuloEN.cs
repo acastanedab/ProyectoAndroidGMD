@@ -10,17 +10,17 @@ namespace ProyectoAndroid.Dominio.Entidad.Articulo
     public class ArticuloEN : Resultado,Articulo
     {
 
-        public ArticuloEN()
-        {
 
-        }
         #region Propiedades
         public long CodigoArticulo { get; set; }
         public string NombreArticulo { get; set; }
         public string DescripcionArticulo { get; set; }
         public decimal PrecioArticulo { get; set; }
         #endregion
+        public ArticuloEN()
+        {
 
+        }
         public int RegistrarArticulo(ArticuloEN articulo)
         {
             try

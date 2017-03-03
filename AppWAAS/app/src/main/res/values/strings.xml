@@ -13,4 +13,8 @@
     <string name="action_session">Cerrar Sesión</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="url">http://192.168.1.12/ProyectoAndroidWebApi/api/</string>
+<!--
+    <string name="url">http://www.kallpasedano.com/proyecto/api/</string>
+ -->
 </resources>

@@ -35,8 +35,7 @@ public class ListaArticuloActivity extends AppCompatActivity {
                 .registerTypeAdapterFactory(new ArrayAdapterFactory())
                 .create();
 
-        String URL = "http://www.kallpasedano.com/proyecto/api/";
-        //String URL = "http://192.168.1.12/ProyectoAndroidWebApi/api/";
+        String URL = getString(R.string.url);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))

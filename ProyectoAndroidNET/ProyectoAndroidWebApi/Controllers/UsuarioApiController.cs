@@ -17,10 +17,12 @@ namespace ProyectoAndroid.Controllers
             usuario = new UsuarioEN();
             
         }
-        [HttpGet]
-        public UsuarioEN ObtenerUsuario(string nombreUsuario)
+        [HttpPost]
+        public UsuarioEN ObtenerUsuario(UsuarioEN usuarioEN)
         {
-            var resultado =  usuario.ObtenerUsuario(nombreUsuario);
+            string correo = usuarioEN.CorreoUsuario;
+            string contrasenia = usuarioEN.ContraseniaUsuario;
+            var resultado =  usuario.ObtenerUsuario(correo,contrasenia);
             return resultado;
         }
         [HttpPost]

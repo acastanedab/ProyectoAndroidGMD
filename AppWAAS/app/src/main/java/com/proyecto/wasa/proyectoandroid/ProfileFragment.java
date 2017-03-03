@@ -68,9 +68,9 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         final ArrayList<ListaGenerica> products = new ArrayList<>();
-        ListaGenerica p1 = new ListaGenerica("Nombre :", "Washington");
-        ListaGenerica p2 = new ListaGenerica("Email :", "wcondori@gmail.com");
-        ListaGenerica p3 = new ListaGenerica("Nº Celular :", "123456689");
+        ListaGenerica p1 = new ListaGenerica("Nombre :", "");
+        ListaGenerica p2 = new ListaGenerica("Email :", "");
+        ListaGenerica p3 = new ListaGenerica("Nº Celular :", "");
         products.add(p1);
         products.add(p2);
         products.add(p3);

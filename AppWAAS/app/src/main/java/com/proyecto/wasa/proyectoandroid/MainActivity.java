@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.proyecto.wasa.proyectoandroid.Entidades.Usuario;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,6 +28,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, HomeFragment.OnFragmentInteractionListener {
 
+    Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +37,12 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
         getSupportActionBar().setTitle(R.string.app_name_home);
 
-
-
         HomeFragment homeFragment = new HomeFragment();
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.FrameMain, homeFragment, homeFragment.getTag()
         ).commit();
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

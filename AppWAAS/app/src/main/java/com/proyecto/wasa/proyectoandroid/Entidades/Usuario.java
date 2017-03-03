@@ -14,6 +14,9 @@ public class Usuario implements Serializable {
     private String CorreoUsuario;
     private String CelularUsuario;
 
+    private int Estado;
+    private String Mensaje;
+
 
     public long getCodigoUsuario() {
         return CodigoUsuario;
@@ -53,5 +56,23 @@ public class Usuario implements Serializable {
 
     public void setCelularUsuario(String celularUsuario) {
         CelularUsuario = celularUsuario;
+    }
+
+
+    public int getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(int estado) {
+        Estado = estado;
+    }
+
+
+    public String getMensaje() {
+        return Mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        Mensaje = mensaje;
     }
 }

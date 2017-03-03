@@ -12,13 +12,10 @@ namespace ProyectoAndroid.Controllers
     public class PedidoApiController : ApiController
     {
         private Pedido pedido;
-        private PedidoSeguimiento pedidoSeguimiento;
-        private PedidoDetalle pedidoDetalle;
+
         
         public PedidoApiController()
         {
-            pedidoSeguimiento = new PedidoSeguimientoEN();
-            pedidoDetalle = new PedidoDetalleEN();
             pedido = new PedidoEN();
         }
 
@@ -30,31 +27,31 @@ namespace ProyectoAndroid.Controllers
         }
 
         [HttpPost]
-        public Object RegistrarPedidoSeguimiento(PedidoSeguimientoEN pedidoSeguimientoEN)
+        public Object RegistrarPedidoSeguimiento(PedidoEN pedidoEN)
         {
-            pedidoSeguimiento.RegistrarPedidoSeguimiento(pedidoSeguimientoEN);
-            return pedidoSeguimientoEN;
+            pedido.RegistrarPedidoSeguimiento(pedidoEN);
+            return pedidoEN;
         }
 
 
         [HttpPost]
-        public Object RegistrarPedidoDetalle(PedidoDetalleEN pedidoDetalleEN)
+        public Object RegistrarPedidoDetalle(PedidoEN pedidoEN)
         {
-            pedidoDetalle.RegistrarPedidoDetalle(pedidoDetalleEN);
-            return pedidoDetalleEN;
+            pedido.RegistrarPedidoDetalle(pedidoEN);
+            return pedidoEN;
         }
 
         [HttpGet]
-        public List<PedidoDetalleEN> ListarPedidoDetalle(long codigoPedido)
+        public List<PedidoEN> ListarPedidoDetalle(long codigoPedido)
         {
-            var resultado = pedidoDetalle.ListarPedidoDetalle(codigoPedido);
+            var resultado = pedido.ListarPedidoDetalle(codigoPedido);
             return resultado;
         }
 
         [HttpGet]
-        public List<PedidoSeguimientoEN> ListarPedidoSeguimiento(long codigoPedido)
+        public List<PedidoEN> ListarPedidoSeguimiento(long codigoPedido)
         {
-            var resultado = pedidoSeguimiento.ListarPedidoSeguimiento(codigoPedido);
+            var resultado = pedido.ListarPedidoSeguimiento(codigoPedido);
             return resultado;
         }
 

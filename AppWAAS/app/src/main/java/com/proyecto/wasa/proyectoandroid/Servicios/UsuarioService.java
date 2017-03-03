@@ -3,6 +3,7 @@ package com.proyecto.wasa.proyectoandroid.Servicios;
 import com.proyecto.wasa.proyectoandroid.Entidades.Usuario;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -12,6 +13,6 @@ import retrofit2.http.Path;
  */
 
 public interface UsuarioService {
-    @GET("usuario/obtener/{nombreUsuario}")
-    Call<Usuario> getUsuario(@Path("nombreUsuario")String nombreUsuario);
+    @POST("usuario/obtener/")
+    Call<Usuario> obtenerUsuario(@Body Usuario usuario);
 }

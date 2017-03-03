@@ -9,15 +9,18 @@ namespace ProyectoAndroid.Dominio.Entidad.Usuario
 {
     public class UsuarioEN:Resultado,Usuario
     {
-        public UsuarioEN()
-        {
 
-        }
         public long CodigoUsuario { get; set; }
         public string NombreUsuario { get; set; }
         public string ContraseniaUsuario { get; set; }
         public string CorreoUsuario { get; set; }
-        public string CelularUsuario { get; set; } 
+        public string CelularUsuario { get; set; }
+
+        public UsuarioEN()
+        {
+
+        }
+
         public int RegistrarUsuario(UsuarioEN usuario)
         {
             try
@@ -39,25 +42,36 @@ namespace ProyectoAndroid.Dominio.Entidad.Usuario
             return (int)usuario.Estado;
         }
 
-        public UsuarioEN ObtenerUsuario(string correoUsuario)
+        public UsuarioEN ObtenerUsuario(string correo, string contrasenia)
         {
             try
             {
                 IDictionary map = new Dictionary<string, Object>();
-                map.Add("USU_EMAIL", correoUsuario);
+                map.Add("USU_EMAIL", correo);
+                map.Add("USU_PASS", contrasenia);
                 Object usuarioEN = Mapper.Mapper.Instance().QueryForObject("uspUsuarioSEL", map);
-                var usuario = new UsuarioEN
+                if (usuarioEN != null)
                 {
-                    CodigoUsuario = ((UsuarioEN)usuarioEN).CodigoUsuario,
-                    NombreUsuario = ((UsuarioEN)usuarioEN).NombreUsuario,
-                    CorreoUsuario = ((UsuarioEN)usuarioEN).CorreoUsuario,
-                    CelularUsuario = ((UsuarioEN)usuarioEN).CelularUsuario,
-                    ContraseniaUsuario = ((UsuarioEN)usuarioEN).ContraseniaUsuario,
-                    Mensaje = "OK",
-                    Estado = 1
-                };
-
-                return usuario;
+                    var usuario = new UsuarioEN
+                    {
+                        CodigoUsuario = ((UsuarioEN)usuarioEN).CodigoUsuario,
+                        NombreUsuario = ((UsuarioEN)usuarioEN).NombreUsuario,
+                        CorreoUsuario = ((UsuarioEN)usuarioEN).CorreoUsuario,
+                        CelularUsuario = ((UsuarioEN)usuarioEN).CelularUsuario,
+                        ContraseniaUsuario = ((UsuarioEN)usuarioEN).ContraseniaUsuario,
+                        Mensaje = "OK",
+                        Estado = 1
+                    };
+                    return usuario;
+                }
+                else
+                {
+                    return new UsuarioEN()
+                    {
+                        Mensaje = "Correo y/o Contraseña incorrecta",
+                        Estado = -1
+                    };
+                }
             }
             catch (Exception ex)
             {

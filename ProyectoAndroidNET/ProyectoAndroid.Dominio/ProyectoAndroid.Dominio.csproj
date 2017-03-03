@@ -50,10 +50,8 @@
     <Compile Include="Entidad\Articulo\Articulo.cs" />
     <Compile Include="Entidad\Articulo\ArticuloEN.cs" />
     <Compile Include="Entidad\Pedido\Pedido.cs" />
-    <Compile Include="Entidad\Pedido\PedidoDetalle.cs" />
     <Compile Include="Entidad\Pedido\PedidoDetalleEN.cs" />
     <Compile Include="Entidad\Pedido\PedidoEN.cs" />
-    <Compile Include="Entidad\Pedido\PedidoSeguimiento.cs" />
     <Compile Include="Entidad\Pedido\PedidoSeguimientoEN.cs" />
     <Compile Include="Entidad\Usuario\Usuario.cs" />
     <Compile Include="Entidad\Usuario\UsuarioEN.cs" />

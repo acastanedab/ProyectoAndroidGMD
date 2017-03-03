@@ -16,6 +16,7 @@
   <parameterMaps>
     <parameterMap id="paramUsuarioSEL">
       <parameter property="USU_EMAIL" direction="input"/>
+      <parameter property="USU_PASS" direction="input"/>
     </parameterMap>
     <parameterMap id="paramUsuarioINS">
       <parameter property="USU_NOM" direction="input"/>

@@ -1,5 +1,6 @@
 package com.proyecto.wasa.proyectoandroid;
 
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -44,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
     ArrayList<HashMap<String, String>> userList;
+    private FragmentManager fragmentManager;
+
 
     @Bind(R.id.etxt_email) EditText etxt_email;
     @Bind(R.id.etxt_password) EditText etxt_password;
@@ -59,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // login();
                 iniciarsesion();
             }
         });
@@ -67,8 +69,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SingAccountActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
+
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
@@ -90,25 +91,31 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.setMessage("Authenticating...");
             progressDialog.show();
 
-            String URL = "http://www.kallpasedano.com/proyecto/api/";
+            String URL = getString(R.string.url);
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
             String email = etxt_email.getText().toString();
+            String pass = etxt_password.getText().toString();
 
             UsuarioService usuarioService = retrofit.create(UsuarioService.class);
-            Call<Usuario> call = usuarioService.getUsuario(email);
+
+            Usuario user = new Usuario();
+            user.setCorreoUsuario(email);
+            user.setContraseniaUsuario(pass);
+            Call<Usuario> call = usuarioService.obtenerUsuario(user);
 
             call.enqueue(new Callback<Usuario>() {
                 @Override
                 public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-
-                    //Log.d("OK",response.body().getContraseniaUsuario());
-                    String passw = etxt_password.getText().toString();
-                    String passw2 =(String)response.body().getContraseniaUsuario();
-                    if(passw2.equals(passw)) {
+                    int estado = response.body().getEstado();
+                    if(estado==1) {
                         Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), SingAccountActivity.class);
+                        startActivityForResult(intent, REQUEST_SIGNUP);
+                        finish();
+                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                         new android.os.Handler().postDelayed(
                                 new Runnable() {
                                     public void run() {
@@ -120,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                     else {
                         btn_login.setEnabled(true);
                         progressDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "Password Incorrecto.!"+passw+"-"+passw2+"|" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, response.body().getMensaje() , Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -131,6 +138,17 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
 
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_SIGNUP) {
+            if (resultCode == RESULT_OK) {
+
+                // TODO: Implement successful signup logic here
+                // By default we just finish the Activity and log them in automatically
+                this.finish();
+            }
         }
     }
 
@@ -154,9 +172,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = etxt_email.getText().toString();
         String password = etxt_password.getText().toString();
 
-        // if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
-
-        if (email.isEmpty()) {
+       if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etxt_email.setError("Ingrese un Email Valido");
             etxt_email.setFocusable(true);
             etxt_email.requestFocus();
