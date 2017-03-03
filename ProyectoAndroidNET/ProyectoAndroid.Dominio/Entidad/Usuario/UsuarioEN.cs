@@ -17,8 +17,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Usuario
         public string NombreUsuario { get; set; }
         public string ContraseniaUsuario { get; set; }
         public string CorreoUsuario { get; set; }
-        public string CelularUsuario { get; set; }
-
+        public string CelularUsuario { get; set; } 
         public int RegistrarUsuario(UsuarioEN usuario)
         {
             try
@@ -53,6 +52,7 @@ namespace ProyectoAndroid.Dominio.Entidad.Usuario
                     NombreUsuario = ((UsuarioEN)usuarioEN).NombreUsuario,
                     CorreoUsuario = ((UsuarioEN)usuarioEN).CorreoUsuario,
                     CelularUsuario = ((UsuarioEN)usuarioEN).CelularUsuario,
+                    ContraseniaUsuario = ((UsuarioEN)usuarioEN).ContraseniaUsuario,
                     Mensaje = "OK",
                     Estado = 1
                 };

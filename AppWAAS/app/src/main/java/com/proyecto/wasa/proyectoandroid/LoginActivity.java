@@ -96,21 +96,32 @@ public class LoginActivity extends AppCompatActivity {
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
             String email = etxt_email.getText().toString();
+
             UsuarioService usuarioService = retrofit.create(UsuarioService.class);
             Call<Usuario> call = usuarioService.getUsuario(email);
 
             call.enqueue(new Callback<Usuario>() {
                 @Override
                 public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                    Toast.makeText(LoginActivity.this, "Usuario:" + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
-                    Log.d("OK",response.body().toString());
-                    new android.os.Handler().postDelayed(
-                            new Runnable() {
-                                public void run() {
-                                    onLoginSuccess();
-                                    progressDialog.dismiss();
-                                }
-                            }, 3000);
+
+                    //Log.d("OK",response.body().getContraseniaUsuario());
+                    String passw = etxt_password.getText().toString();
+                    String passw2 =(String)response.body().getContraseniaUsuario();
+                    if(passw2.equals(passw)) {
+                        Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
+                        new android.os.Handler().postDelayed(
+                                new Runnable() {
+                                    public void run() {
+                                        onLoginSuccess();
+                                        progressDialog.dismiss();
+                                    }
+                                }, 3000);
+                    }
+                    else {
+                        btn_login.setEnabled(true);
+                        progressDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "Password Incorrecto.!"+passw+"-"+passw2+"|" , Toast.LENGTH_LONG).show();
+                    }
                 }
 
                 @Override

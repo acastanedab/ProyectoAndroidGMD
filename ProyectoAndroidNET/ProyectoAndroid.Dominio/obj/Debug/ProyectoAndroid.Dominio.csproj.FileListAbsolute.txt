@@ -10,3 +10,8 @@ C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\bin\Debug\Proye
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.dll
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.pdb
 C:\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.csprojResolveAssemblyReference.cache
+D:\GMD\Repositorio\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\bin\Debug\ProyectoAndroid.Dominio.dll
+D:\GMD\Repositorio\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\bin\Debug\ProyectoAndroid.Dominio.pdb
+D:\GMD\Repositorio\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.csprojResolveAssemblyReference.cache
+D:\GMD\Repositorio\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.dll
+D:\GMD\Repositorio\ProyectoAndroidGMD\ProyectoAndroidNET\ProyectoAndroid.Dominio\obj\Debug\ProyectoAndroid.Dominio.pdb
