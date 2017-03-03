@@ -15,5 +15,4 @@ public interface ArticuloService {
     @GET("articulo/listar")
     Call<List<Articulo>> getArticulo();
 
-
 }

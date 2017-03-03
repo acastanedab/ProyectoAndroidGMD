@@ -14,6 +14,12 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.proyecto.wasa.proyectoandroid.Adapter.ArrayAdapterFactory;
+import com.proyecto.wasa.proyectoandroid.Entidades.Usuario;
+import com.proyecto.wasa.proyectoandroid.Servicios.UsuarioService;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +34,11 @@ import java.util.HashMap;
 
 import butterknife.ButterKnife;
 import butterknife.Bind;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -48,7 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+               // login();
+                iniciarsesion();
             }
         });
         link_signup.setOnClickListener(new View.OnClickListener() {
@@ -64,40 +76,55 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void login() {
-        Log.d(TAG, "Login");
-
+    private void iniciarsesion(){
         if (!validate()) {
-            //onLoginFailed();
             return ;
         }
         else {
             btn_login.setEnabled(false);
-
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapterFactory(new ArrayAdapterFactory())
+                    .create();
             final ProgressDialog progressDialog  = new ProgressDialog(LoginActivity.this, R.style.AppTheme_Dark_Dialog);
             progressDialog.setIndeterminate(true);
             progressDialog.setMessage("Authenticating...");
             progressDialog.show();
 
+            String URL = "http://www.kallpasedano.com/proyecto/api/";
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(URL)
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .build();
             String email = etxt_email.getText().toString();
-            String password = etxt_password.getText().toString();
-            //new GetLoginClass().execute();
-            new ReadPlacesFeedTask().execute("http://www.kallpasedano.com/proyecto/api/usuario/obtener/usuario");
-            new android.os.Handler().postDelayed(
-                    new Runnable() {
-                        public void run() {
-                            onLoginSuccess();
-                            progressDialog.dismiss();
-                        }
-                    }, 3000);
+            UsuarioService usuarioService = retrofit.create(UsuarioService.class);
+            Call<Usuario> call = usuarioService.getUsuario(email);
 
-            // TODO: Implement your own authentication logic here.
+            call.enqueue(new Callback<Usuario>() {
+                @Override
+                public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                    Toast.makeText(LoginActivity.this, "Usuario:" + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
+                    Log.d("OK",response.body().toString());
+                    new android.os.Handler().postDelayed(
+                            new Runnable() {
+                                public void run() {
+                                    onLoginSuccess();
+                                    progressDialog.dismiss();
+                                }
+                            }, 3000);
+                }
+
+                @Override
+                public void onFailure(Call<Usuario> call, Throwable throwable) {
+                    Toast.makeText(LoginActivity.this, "Error: " + throwable.getMessage(), Toast.LENGTH_LONG).show();
+                    Log.d("Error",throwable.getMessage());
+                }
+            });
 
         }
     }
+
     @Override
     public void onBackPressed() {
-        // Disable going back to the MainActivity
         moveTaskToBack(true);
     }
 
@@ -108,7 +135,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
         btn_login.setEnabled(true);
     }
 
@@ -117,7 +143,9 @@ public class LoginActivity extends AppCompatActivity {
         String email = etxt_email.getText().toString();
         String password = etxt_password.getText().toString();
 
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        // if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
+
+        if (email.isEmpty()) {
             etxt_email.setError("Ingrese un Email Valido");
             etxt_email.setFocusable(true);
             etxt_email.requestFocus();
@@ -139,133 +167,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private class GetLoginClass extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Toast.makeText(LoginActivity.this,"Json Data is  downloading",Toast.LENGTH_LONG).show();
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-            String url = "http://www.kallpasedano.com/proyecto/api/usuario/obtener/usuario";// + email;
-            String jsonStr = sh.makeServiceCall(url);
-
-            if (jsonStr != null) {
-                try {
-                    JSONObject jsonObj = new JSONObject(jsonStr);
-                    //JSONArray contacts = jsonObj.getJSONArray("Usuario");
-                    //JSONArray contacts = new JSONArray("["+jsonObj.getString("Usuario")+"]");
-                    //int datos=jsonObj.length();//.getString("Usuario");
-                    //Toast.makeText(getApplicationContext(),  datos,  Toast.LENGTH_LONG).show();
-                    /*for (int i = 0; i < contacts.length(); i++) {
-                        JSONObject c = contacts.getJSONObject(i);
-                        String CodigoUsuario = c.getString("CodigoUsuario");
-                        String NombreUsuario = c.getString("NombreUsuario");
-                        String CorreoUsuario = c.getString("CorreoUsuario");
-                        String CelularUsuario = c.getString("CelularUsuario");
-                        HashMap<String, String> contact = new HashMap<>();
-                        contact.put("CodigoUsuario", CodigoUsuario);
-                        contact.put("NombreUsuario", NombreUsuario);
-                        contact.put("CorreoUsuario", CorreoUsuario);
-                        contact.put("CelularUsuario", CelularUsuario);
-                        userList.add(contact);
-                    }*/
-
-                    Toast.makeText(getApplicationContext(),  "POR FIN",  Toast.LENGTH_LONG).show();
 
 
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),  "Json parsing error: " + e.getMessage(),  Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
 
-            } else {
-                Log.e(TAG, "No se pudo obtener json desde el servidor.");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "No se pudo obtener json desde el servidor. Revise LogCat para ver si hay errores!",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
-                Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-        }
-    }
-
-    private class ReadPlacesFeedTask extends AsyncTask<String, Void, String> {
-        protected String doInBackground(String... urls) {
-            return readJSONFeed(urls[0]);
-        }
-
-        protected void onPostExecute(String result) {
-            try {
-                JSONObject jsonObject = new JSONObject(result);
-                /*String Seguimiento = jsonObject.getString("Seguimiento");
-                JSONObject c = new JSONObject(Seguimiento);
-                String LongitudSeguimiento = c.getString("LongitudSeguimiento");
-                String CodigoSeguimiento = c.getString("CodigoSeguimiento");
-                String FechaSeguimiento = c.getString("FechaSeguimiento");
-                String LatitudSeguimiento = c.getString("LatitudSeguimiento");
-                String Articulo = c.getString("Articulo");
-                Toast.makeText(getBaseContext(), LongitudSeguimiento,  Toast.LENGTH_LONG).show();*/
-                JSONArray postalCodesItems = new JSONArray("["+jsonObject.getString("Usuario")+"]");
-                //---print out the content of the json feed---
-                for (int i = 0; i < postalCodesItems.length(); i++) {
-                    JSONObject postalCodesItem = postalCodesItems.getJSONObject(i);
-                    Toast.makeText(getBaseContext(), postalCodesItem.getString("NombreUsuario"),  Toast.LENGTH_LONG).show();
-                }
-            } catch (Exception e) {
-                Log.d("ReadPlacesFeedTask", e.getLocalizedMessage());
-            }
-        }
-        public String readJSONFeed(String desiredUrl) {
-
-            URL url;
-            HttpURLConnection urlConnection = null;
-            StringBuilder stringBuilder = new StringBuilder();
-
-            try {
-                url = new URL(desiredUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestProperty("User-Agent", "");
-                connection.setRequestMethod("GET");
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream inputStream = connection.getInputStream();
-
-                if (inputStream != null) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        stringBuilder.append(line);
-                    }
-                    inputStream.close();
-
-                } else {
-                    Log.d("JSON", "Failed to download file");
-                }
-            } catch (Exception e) {
-                Log.d("readJSONFeed", e.getLocalizedMessage());
-            }
-            return stringBuilder.toString();
-        }
-    }
 
 }
