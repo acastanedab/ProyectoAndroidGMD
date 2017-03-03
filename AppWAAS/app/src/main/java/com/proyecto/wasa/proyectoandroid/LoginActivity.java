@@ -110,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                     int estado = response.body().getEstado();
+                    Toast.makeText(LoginActivity.this,response.toString() , Toast.LENGTH_LONG).show();
                     if(estado==1) {
                         Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), SingAccountActivity.class);
