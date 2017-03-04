@@ -6,6 +6,15 @@
   </alias>
 
   <resultMaps>
+    <resultMap id="resultMapPedido" class="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN">
+      <result property ="CodigoPedido"                                      column="PDE_CAN"/>
+      <result property ="DireccionPedido"                                   column="PDE_SUB"/>
+      <result property ="FechaPedido"                                       column="PED_FEC"/>
+      <result property ="TotalPedido"                                       column="PED_TOTAL"/>
+      <result property ="Usuario.CodigoUsuario"                             column="USU_COD"/>
+      <result property ="Usuario.NombreUsuario"                             column="USU_NOM"/>
+      <result property ="Usuario.CelularUsuario"                            column="USU_EMAIL"/>
+    </resultMap>
     <resultMap id="resultMapPedidoDetalle" class="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN">
       <result property ="PedidoDetalle.Articulo.NombreArticulo"             column="ART_NOM" />
       <result property ="PedidoDetalle.Articulo.DescripcionArticulo"        column="ART_DES" />
