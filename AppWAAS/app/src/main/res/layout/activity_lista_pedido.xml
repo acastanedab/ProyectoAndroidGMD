@@ -42,4 +42,10 @@
             android:layout_weight="1"
             android:textStyle="bold"/>
     </LinearLayout>
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv_deslizable"
+            android:layout_below="@id/LCABEZERA"/>
+
 </RelativeLayout>

@@ -1,5 +1,7 @@
 package com.proyecto.wasa.proyectoandroid;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -32,7 +34,6 @@ public class ListaPedidoActivity extends AppCompatActivity {
 
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new ArrayAdapterFactory())
-                .setDateFormat("dd/MM/yyyy hh:mm:ss")
                 .create();
 
         String URL = getString(R.string.url);
@@ -42,7 +43,9 @@ public class ListaPedidoActivity extends AppCompatActivity {
                 .build();
 
         //variable temporal eliminar apenas se implemente el Intent Usuario
-        long codigoUsuario=1;
+        //long codigoUsuario=1;
+        SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+        long codigoUsuario =sharedpreferences.getLong("Codigo",0);
         PedidoService pedidoService = retrofit.create(PedidoService.class);
         Call<List<Pedido>> call = pedidoService.ListarPedido(codigoUsuario);
 
@@ -50,7 +53,7 @@ public class ListaPedidoActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Pedido>> call, Response<List<Pedido>> response) {
                 List<Pedido> pedidos = response.body();
-
+                Toast.makeText(ListaPedidoActivity.this, "leyendo: " + response.body().get(0).getFechaPedido(), Toast.LENGTH_LONG).show();
                 PedidoAdapter pedidoAdapter = new PedidoAdapter(ListaPedidoActivity.this,pedidos);
                 listPedidos.setAdapter(pedidoAdapter);
 

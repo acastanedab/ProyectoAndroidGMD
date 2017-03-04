@@ -34,20 +34,20 @@ public class PedidoAdapter  extends BaseAdapter{
         this.lista = lista;
     }
 
-    @Override
-    public int getCount() {
-        return lista.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return position;
-    }
 
     @Override
     public long getItemId(int position) {
         return position;
     }
+    @Override
+    public Object getItem(int position) {
+        return position;
+    }
+    @Override
+    public int getCount() {
+        return lista.size();
+    }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -64,11 +64,10 @@ public class PedidoAdapter  extends BaseAdapter{
             holder = (ViewHolder)convertView.getTag();
 
         }
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         holder.textViewCodigoPedido.setText(new Long(lista.get(position).getCodigoPedido()).toString());
         holder.textViewDireccionPedido.setText(lista.get(position).getDireccionPedido());
-        holder.textViewFechaPedido.setText(df.format(lista.get(position).getFechaPedido()));
+        holder.textViewFechaPedido.setText(lista.get(position).getFechaPedido());
         holder.textViewTotalPedido.setText(String.valueOf(lista.get(position).getPrecioTotalPedido()));
         return convertView;
     }

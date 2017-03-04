@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Pedido  implements Serializable {
     private long CodigoPedido;
-    private Date FechaPedido;
+    private String FechaPedido;
     private String DireccionPedido;
     private double PrecioTotalPedido;
     private Usuario Usuario;
@@ -32,12 +32,12 @@ public class Pedido  implements Serializable {
         CodigoPedido = codigoPedido;
     }
 
-    public Date getFechaPedido() {
+    public String getFechaPedido() {
 
         return FechaPedido;
     }
 
-    public void setFechaPedido(Date fechaPedido) {
+    public void setFechaPedido(String fechaPedido) {
 
         FechaPedido = fechaPedido;
     }
