@@ -13,6 +13,10 @@
         android:title="@string/action_pedidos"
         android:icon="@drawable/ic_menu_perfil"
         app:showAsAction="never" />
+    <item android:id="@+id/action_pedidos_seguimiento"
+        android:title="@string/action_seguimiento"
+        android:icon="@drawable/ic_menu_perfil"
+        app:showAsAction="never" />
     <item android:id="@+id/action_articulos"
         android:title="@string/action_articulos"
         android:icon="@drawable/ic_menu_perfil"

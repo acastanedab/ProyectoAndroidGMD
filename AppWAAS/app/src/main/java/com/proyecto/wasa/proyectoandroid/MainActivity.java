@@ -74,6 +74,16 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
         if (id == R.id.action_pedidos) {
+            getSupportActionBar().setTitle(R.string.app_name_seguimiento);
+            SeguimientoFragment seguimientoFragment = new SeguimientoFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction()
+                    .setCustomAnimations(R.anim.push_left_in, R.anim.push_left_out)
+                    .replace(R.id.FrameMain, seguimientoFragment, seguimientoFragment.getTag()
+                    ).commit();
+            return true;
+        }
+        if (id == R.id.action_pedidos_seguimiento) {
             getSupportActionBar().setTitle(R.string.app_name_pedido);
             OrderFragment orderFragment = new OrderFragment();
             FragmentManager manager = getSupportFragmentManager();
