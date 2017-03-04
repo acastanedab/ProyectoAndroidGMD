@@ -113,9 +113,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,response.toString() , Toast.LENGTH_LONG).show();
                     if(estado==1) {
                         Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), SingAccountActivity.class);
-                        startActivityForResult(intent, REQUEST_SIGNUP);
-                        finish();
                         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                         new android.os.Handler().postDelayed(
                                 new Runnable() {

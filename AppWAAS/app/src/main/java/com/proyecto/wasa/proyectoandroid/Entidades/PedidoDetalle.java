@@ -11,7 +11,6 @@ public class PedidoDetalle implements Serializable{
     private double PrecioPedidoDetalle;
     private int CantidadPedidoDetalle;
     private double SubTotalPedidoDetalle;
-    private Pedido Pedido;
     private Articulo Articulo;
 
 
@@ -47,13 +46,7 @@ public class PedidoDetalle implements Serializable{
         SubTotalPedidoDetalle = subTotalPedidoDetalle;
     }
 
-    public Pedido getPedido() {
-        return Pedido;
-    }
 
-    public void setPedido(Pedido pedido) {
-        Pedido = pedido;
-    }
 
     public Articulo getArticulo() {
         return Articulo;
