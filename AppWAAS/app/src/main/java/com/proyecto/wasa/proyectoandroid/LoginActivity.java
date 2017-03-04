@@ -69,7 +69,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), SingAccountActivity.class);
+                startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
@@ -110,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                     int estado = response.body().getEstado();
-                    Toast.makeText(LoginActivity.this,response.toString() , Toast.LENGTH_LONG).show();
                     if(estado==1) {
                         Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
                         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
