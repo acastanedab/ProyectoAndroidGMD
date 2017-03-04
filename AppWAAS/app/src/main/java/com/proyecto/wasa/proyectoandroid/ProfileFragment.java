@@ -1,5 +1,6 @@
 package com.proyecto.wasa.proyectoandroid;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +12,9 @@ import com.amigold.fundapter.BindDictionary;
 import com.amigold.fundapter.FunDapter;
 import com.amigold.fundapter.extractors.StringExtractor;
 import java.util.ArrayList;
-
+import android.content.SharedPreferences;
+import android.content.Intent;
+import static android.app.Activity.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,10 +70,13 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        SharedPreferences sharedpreferences = this.getActivity().getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+
+
         final ArrayList<ListaGenerica> products = new ArrayList<>();
-        ListaGenerica p1 = new ListaGenerica("Nombre :", "");
-        ListaGenerica p2 = new ListaGenerica("Email :", "");
-        ListaGenerica p3 = new ListaGenerica("Nº Celular :", "");
+        ListaGenerica p1 = new ListaGenerica("Nombre ", sharedpreferences.getString("Usuario", null));
+        ListaGenerica p2 = new ListaGenerica("Email ", sharedpreferences.getString("Email", null));
+        ListaGenerica p3 = new ListaGenerica("Nº Celular ",sharedpreferences.getString("Celular", null));
         products.add(p1);
         products.add(p2);
         products.add(p3);
