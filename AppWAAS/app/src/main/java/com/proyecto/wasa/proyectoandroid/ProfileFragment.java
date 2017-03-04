@@ -73,13 +73,13 @@ public class ProfileFragment extends Fragment {
         SharedPreferences sharedpreferences = this.getActivity().getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
 
 
-        final ArrayList<ListaGenerica> products = new ArrayList<>();
+        final ArrayList<ListaGenerica> session = new ArrayList<>();
         ListaGenerica p1 = new ListaGenerica("Nombre ", sharedpreferences.getString("Usuario", null));
         ListaGenerica p2 = new ListaGenerica("Email ", sharedpreferences.getString("Email", null));
         ListaGenerica p3 = new ListaGenerica("Nº Celular ",sharedpreferences.getString("Celular", null));
-        products.add(p1);
-        products.add(p2);
-        products.add(p3);
+        session.add(p1);
+        session.add(p2);
+        session.add(p3);
         BindDictionary<ListaGenerica> dictionary = new BindDictionary<>();
         dictionary.addStringField(R.id.tvName, new StringExtractor<ListaGenerica>() {
             @Override
@@ -94,7 +94,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        FunDapter adapter = new FunDapter(ProfileFragment.this.getActivity(), products, R.layout.perfile_layout, dictionary);
+        FunDapter adapter = new FunDapter(ProfileFragment.this.getActivity(), session, R.layout.perfile_layout, dictionary);
 
         ListView lvProduct = (ListView)view.findViewById(R.id.lvPerfil);
         lvProduct.setAdapter(adapter);

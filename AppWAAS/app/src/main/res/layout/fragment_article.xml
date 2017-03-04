@@ -4,10 +4,44 @@
     android:layout_height="match_parent"
     tools:context="com.proyecto.wasa.proyectoandroid.ArticleFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/LCABEZERA"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="articulossss" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCodigoArticulo"
+            android:text="Codigo"
+            android:layout_weight="0.5"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNombreArticulo"
+            android:text="Nombre"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDescripcionArticulo"
+            android:text="Descripcion"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPrecioArticulo"
+            android:text="Precio"
+            android:layout_weight="0.7"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_deslizable"
+        android:layout_below="@id/LCABEZERA"/>
 
 </FrameLayout>

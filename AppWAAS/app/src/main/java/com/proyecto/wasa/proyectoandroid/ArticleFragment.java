@@ -7,6 +7,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.proyecto.wasa.proyectoandroid.Adapter.ArrayAdapterFactory;
+import com.proyecto.wasa.proyectoandroid.Adapter.ArticuloAdapter;
+import com.proyecto.wasa.proyectoandroid.Entidades.Articulo;
+import com.proyecto.wasa.proyectoandroid.Servicios.ArticuloService;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -22,7 +39,7 @@ public class ArticleFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private ListView listArticulos;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -63,7 +80,37 @@ public class ArticleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_article, container, false);
+        View v = inflater.inflate(R.layout.fragment_article, container, false);
+        listArticulos = (ListView) v.findViewById(R.id.lv_deslizable);
+
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new ArrayAdapterFactory())
+                .create();
+
+        String URL = getString(R.string.url);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        ArticuloService articuloService = retrofit.create(ArticuloService.class);
+        Call<List<Articulo>> call = articuloService.getArticulo();
+
+        call.enqueue(new Callback<List<Articulo>>() {
+            @Override
+            public void onResponse(Call<List<Articulo>> call, Response<List<Articulo>> response) {
+                List<Articulo> articulos= response.body();
+
+                ArticuloAdapter articuloAdapter = new ArticuloAdapter(ArticleFragment.this.getActivity(), articulos);
+                listArticulos.setAdapter(articuloAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Articulo>> call, Throwable throwable) {
+                //Toast.makeText(ListaArticuloActivity.this, "Error: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
