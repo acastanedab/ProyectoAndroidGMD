@@ -8,36 +8,38 @@ import java.util.Date;
  */
 
 public class PedidoSeguimiento implements Serializable {
-    private Date fechaPedidoSeguimiento;
-    private String latitudPedidoSeguimiento;
-    private String longitudPedidoSeguimiento;
+    private String FechaPedidoSeguimiento;
+    private String LatitudPedidoSeguimiento;
+    private String LongitudPedidoSeguimiento;
+
+
 
     public PedidoSeguimiento() {
 
     }
 
-    public Date getFechaPedidoSeguimiento() {
-        return fechaPedidoSeguimiento;
+
+    public String getFechaPedidoSeguimiento() {
+        return FechaPedidoSeguimiento;
     }
 
-    public void setFechaPedidoSeguimiento(Date fechaPedidoSeguimiento) {
-        this.fechaPedidoSeguimiento = fechaPedidoSeguimiento;
+    public void setFechaPedidoSeguimiento(String fechaPedidoSeguimiento) {
+        FechaPedidoSeguimiento = fechaPedidoSeguimiento;
     }
 
     public String getLatitudPedidoSeguimiento() {
-        return latitudPedidoSeguimiento;
+        return LatitudPedidoSeguimiento;
     }
 
     public void setLatitudPedidoSeguimiento(String latitudPedidoSeguimiento) {
-        this.latitudPedidoSeguimiento = latitudPedidoSeguimiento;
+        LatitudPedidoSeguimiento = latitudPedidoSeguimiento;
     }
 
     public String getLongitudPedidoSeguimiento() {
-        return longitudPedidoSeguimiento;
+        return LongitudPedidoSeguimiento;
     }
 
     public void setLongitudPedidoSeguimiento(String longitudPedidoSeguimiento) {
-        this.longitudPedidoSeguimiento = longitudPedidoSeguimiento;
+        LongitudPedidoSeguimiento = longitudPedidoSeguimiento;
     }
-
 }

@@ -1,7 +1,6 @@
 package com.proyecto.wasa.proyectoandroid.Entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by Administrador on 02/03/2017.
@@ -20,15 +19,16 @@ public class Pedido  implements Serializable {
     public  Pedido() {
         setPedidoDetalle(new PedidoDetalle());
         setPedidoSeguimiento(new PedidoSeguimiento());
+        setPedidoDetalle(new PedidoDetalle());
+        setPedidoSeguimiento(new PedidoSeguimiento());
     }
 
-    public long getCodigoPedido() {
 
+    public long getCodigoPedido() {
         return CodigoPedido;
     }
 
     public void setCodigoPedido(long codigoPedido) {
-
         CodigoPedido = codigoPedido;
     }
 
@@ -43,12 +43,10 @@ public class Pedido  implements Serializable {
     }
 
     public String getDireccionPedido() {
-
         return DireccionPedido;
     }
 
     public void setDireccionPedido(String direccionPedido) {
-
         DireccionPedido = direccionPedido;
     }
 
@@ -62,32 +60,27 @@ public class Pedido  implements Serializable {
         PrecioTotalPedido = precioTotalPedido;
     }
 
-    public Usuario getUsuario() {
-
+    public com.proyecto.wasa.proyectoandroid.Entidades.Usuario getUsuario() {
         return Usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-
+    public void setUsuario(com.proyecto.wasa.proyectoandroid.Entidades.Usuario usuario) {
         Usuario = usuario;
     }
 
-    public PedidoDetalle getPedidoDetalle() {
-
+    public com.proyecto.wasa.proyectoandroid.Entidades.PedidoDetalle getPedidoDetalle() {
         return PedidoDetalle;
     }
 
-    public void setPedidoDetalle(PedidoDetalle pedidoDetalle) {
-
+    public void setPedidoDetalle(com.proyecto.wasa.proyectoandroid.Entidades.PedidoDetalle pedidoDetalle) {
         PedidoDetalle = pedidoDetalle;
     }
 
-    public PedidoSeguimiento getPedidoSeguimiento() {
-
+    public com.proyecto.wasa.proyectoandroid.Entidades.PedidoSeguimiento getPedidoSeguimiento() {
         return PedidoSeguimiento;
     }
 
-    public void setPedidoSeguimiento(PedidoSeguimiento pedidoSeguimiento) {
+    public void setPedidoSeguimiento(com.proyecto.wasa.proyectoandroid.Entidades.PedidoSeguimiento pedidoSeguimiento) {
         PedidoSeguimiento = pedidoSeguimiento;
     }
 }
