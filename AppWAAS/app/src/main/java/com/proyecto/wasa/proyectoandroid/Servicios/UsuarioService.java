@@ -15,4 +15,6 @@ import retrofit2.http.Path;
 public interface UsuarioService {
     @POST("usuario/obtener/")
     Call<Usuario> obtenerUsuario(@Body Usuario usuario);
+    @POST("usuario/registrar/")
+    Call<Usuario> RegistrarUsuario(@Body Usuario usuario);
 }

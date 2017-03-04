@@ -11,8 +11,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.proyecto.wasa.proyectoandroid.Adapter.ArrayAdapterFactory;
+import com.proyecto.wasa.proyectoandroid.Entidades.Usuario;
+import com.proyecto.wasa.proyectoandroid.Servicios.UsuarioService;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SingAccountActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
@@ -57,8 +68,7 @@ public class SingAccountActivity extends AppCompatActivity {
 
         _signupButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(SingAccountActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+        final ProgressDialog progressDialog = new ProgressDialog(SingAccountActivity.this,R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
@@ -68,19 +78,45 @@ public class SingAccountActivity extends AppCompatActivity {
         String mobile = _mobileText.getText().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
+        Gson gson = new GsonBuilder().registerTypeAdapterFactory(new ArrayAdapterFactory()).create();
+        String URL = getString(R.string.url);
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create(gson)).build();
+        UsuarioService usuarioService = retrofit.create(UsuarioService.class);
+        Usuario user = new Usuario();
+        user.setNombreUsuario(name);
+        user.setCorreoUsuario(email);
+        user.setCelularUsuario(mobile);
+        user.setContraseniaUsuario(password);
+        Call<Usuario> call = usuarioService.RegistrarUsuario(user);
+        call.enqueue(new Callback<Usuario>() {
+                         @Override
+                         public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                             int estado = response.body().getEstado();
+                             if(estado==1) {
+                                 Toast.makeText(SingAccountActivity.this, "Se Registró con existo el Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
+                                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                 new android.os.Handler().postDelayed(
+                                         new Runnable() {
+                                             public void run() {
+                                                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                                                 startActivity(intent);
+                                                 onSignupSuccess();
+                                                 progressDialog.dismiss();
+                                             }
+                                         }, 3000);
+                             }
+                             else {
+                                 progressDialog.dismiss();
+                                 Toast.makeText(SingAccountActivity.this, response.body().getMensaje() , Toast.LENGTH_LONG).show();
+                             }
+                         }
 
-        // TODO: Implement your own signup logic here.
+                         @Override
+                         public void onFailure(Call<Usuario> call, Throwable throwable) {
+                             Toast.makeText(SingAccountActivity.this, "Error: " + throwable.getMessage(), Toast.LENGTH_LONG).show();
+                         }
+                     });         
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
-                        onSignupSuccess();
-                        // onSignupFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
     }
 
 
