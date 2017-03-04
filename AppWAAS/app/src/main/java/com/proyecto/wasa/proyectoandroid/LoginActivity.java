@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -77,7 +79,15 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
-
+        etxt_password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    iniciarsesion();
+                }
+                return false;
+            }
+        });
     }
 
     private void iniciarsesion(){
@@ -126,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putBoolean("IsLogin", true);
                         editor.commit();
 
-                        Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Acceso con existo: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
                         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                         new android.os.Handler().postDelayed(
                                 new Runnable() {
