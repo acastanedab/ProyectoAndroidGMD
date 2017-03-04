@@ -32,6 +32,7 @@ public class ListaPedidoActivity extends AppCompatActivity {
 
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new ArrayAdapterFactory())
+                .setDateFormat("dd/MM/yyyy hh:mm:ss")
                 .create();
 
         String URL = getString(R.string.url);
@@ -57,7 +58,7 @@ public class ListaPedidoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Pedido>> call, Throwable t) {
-                Toast.makeText(ListaPedidoActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListaPedidoActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 

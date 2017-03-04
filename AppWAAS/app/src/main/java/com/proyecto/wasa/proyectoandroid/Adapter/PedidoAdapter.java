@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.proyecto.wasa.proyectoandroid.Entidades.Pedido;
 import com.proyecto.wasa.proyectoandroid.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -62,9 +64,11 @@ public class PedidoAdapter  extends BaseAdapter{
             holder = (ViewHolder)convertView.getTag();
 
         }
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
         holder.textViewCodigoPedido.setText(new Long(lista.get(position).getCodigoPedido()).toString());
         holder.textViewDireccionPedido.setText(lista.get(position).getDireccionPedido());
-        holder.textViewFechaPedido.setText(lista.get(position).getFechaPedido().toString());
+        holder.textViewFechaPedido.setText(df.format(lista.get(position).getFechaPedido()));
         holder.textViewTotalPedido.setText(String.valueOf(lista.get(position).getPrecioTotalPedido()));
         return convertView;
     }
