@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,11 @@ import com.proyecto.wasa.proyectoandroid.Adapter.PedidoAdapter;
 import com.proyecto.wasa.proyectoandroid.Entidades.Pedido;
 import com.proyecto.wasa.proyectoandroid.Servicios.PedidoService;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -105,10 +110,14 @@ public class SeguimientoFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Pedido>> call, Response<List<Pedido>> response) {
                 List<Pedido> pedidos = response.body();
-                Toast.makeText(SeguimientoFragment.this.getActivity(), "leyendo: " + response.body().get(0).getFechaPedido(), Toast.LENGTH_LONG).show();
-                PedidoAdapter pedidoAdapter = new PedidoAdapter(SeguimientoFragment.this.getActivity(),pedidos);
-                listPedidos.setAdapter(pedidoAdapter);
-
+                if(response.body().size()>0) {
+                    PedidoAdapter pedidoAdapter = new PedidoAdapter(SeguimientoFragment.this.getActivity(), pedidos);
+                    listPedidos.setAdapter(pedidoAdapter);
+                }else{
+                    List<Pedido> lista = new ArrayList<Pedido>();
+                    PedidoAdapter pedidoAdapter = new PedidoAdapter(SeguimientoFragment.this.getActivity(), lista);
+                    listPedidos.setAdapter(pedidoAdapter);
+                }
             }
 
             @Override
