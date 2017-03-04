@@ -16,21 +16,29 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme,android:label">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name=".SingAccountActivity"
+            android:theme="@style/AppTheme.Dark" />
+        <activity android:name=".GpsTestActivity"></activity>
+        <activity android:name=".ListaArticuloActivity">
+
+
+        </activity>
+
+        <service android:name=".Servicios.ServicioGPS" />
+
+        <activity android:name=".ListaPedidoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" android:theme="@style/AppTheme.Dark"/>
-        <activity android:name=".SingAccountActivity" android:theme="@style/AppTheme.Dark"></activity>
-
-        <activity android:name=".GpsTestActivity">
-
-        </activity>
-        <activity android:name=".ListaArticuloActivity">
-
-        </activity>
-        <service android:name=".Servicios.ServicioGPS"/>
     </application>
 
 </manifest>

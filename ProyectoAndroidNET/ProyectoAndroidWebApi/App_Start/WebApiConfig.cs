@@ -63,6 +63,12 @@ namespace ProyectoAndroid
             );
 
             config.Routes.MapHttpRoute(
+                name: "ListarPedidoApi",
+                routeTemplate: "api/pedido/listar/{codigoUsuario}",
+                defaults: new { controller = "PedidoApi", action = "ListarPedido" }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "ListarPedidoDetalleApi",
                 routeTemplate: "api/pedidodetalle/listar/{codigoPedido}",
                 defaults: new { controller = "PedidoApi", action = "ListarPedidoDetalle" }

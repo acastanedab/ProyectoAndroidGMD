@@ -11,7 +11,7 @@ public class Pedido  implements Serializable {
     private long CodigoPedido;
     private Date FechaPedido;
     private String DireccionPedido;
-    private double PrecioPedido;
+    private double PrecioTotalPedido;
     private Usuario Usuario;
     private PedidoDetalle PedidoDetalle;
     private PedidoSeguimiento PedidoSeguimiento;
@@ -52,14 +52,14 @@ public class Pedido  implements Serializable {
         DireccionPedido = direccionPedido;
     }
 
-    public double getPrecioPedido() {
+    public double getPrecioTotalPedido() {
 
-        return PrecioPedido;
+        return PrecioTotalPedido;
     }
 
-    public void setPrecioPedido(double precioPedido) {
+    public void setPrecioTotalPedido(double precioTotalPedido) {
 
-        PrecioPedido = precioPedido;
+        PrecioTotalPedido = precioTotalPedido;
     }
 
     public Usuario getUsuario() {

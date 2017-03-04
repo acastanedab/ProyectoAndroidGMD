@@ -15,4 +15,7 @@ import retrofit2.http.Path;
 public interface PedidoService {
     @GET
     Call<List<Pedido>> ListarPedidoSeguimiento(@Path("codigoPedido") long codigoPedido);
+    @GET("pedido/listar/{codigoUsuario}")
+    Call<List<Pedido>> ListarPedido(@Path("codigoUsuario") long codigoUsuario);
+
 }

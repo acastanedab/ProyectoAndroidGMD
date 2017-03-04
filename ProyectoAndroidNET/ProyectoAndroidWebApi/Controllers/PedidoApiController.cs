@@ -42,6 +42,13 @@ namespace ProyectoAndroid.Controllers
         }
 
         [HttpGet]
+        public List<PedidoEN> ListarPedido(long codigoUsuario)
+        {
+            var resultado = pedido.ListarPedido(codigoUsuario);
+            return resultado;
+        }
+
+        [HttpGet]
         public List<PedidoEN> ListarPedidoDetalle(long codigoPedido)
         {
             var resultado = pedido.ListarPedidoDetalle(codigoPedido);

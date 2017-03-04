@@ -23,13 +23,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ListaArticuloActivity extends AppCompatActivity {
 
-    private ListView listPedidos;
+    private ListView listArticulos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_pedido);
+        setContentView(R.layout.activity_lista_articulo);
 
-        listPedidos = (ListView) findViewById(R.id.lv_deslizable);
+        listArticulos = (ListView) findViewById(R.id.lv_deslizable);
 
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new ArrayAdapterFactory())
@@ -50,13 +50,12 @@ public class ListaArticuloActivity extends AppCompatActivity {
               List<Articulo> articulos= response.body();
 
               ArticuloAdapter articuloAdapter = new ArticuloAdapter(ListaArticuloActivity.this, articulos);
-              listPedidos.setAdapter(articuloAdapter);
+              listArticulos.setAdapter(articuloAdapter);
             }
 
             @Override
             public void onFailure(Call<List<Articulo>> call, Throwable throwable) {
                 Toast.makeText(ListaArticuloActivity.this, "Error: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.i("CTM: ", throwable.getMessage());
             }
         });
 

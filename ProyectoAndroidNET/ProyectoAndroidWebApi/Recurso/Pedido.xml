@@ -7,13 +7,14 @@
 
   <resultMaps>
     <resultMap id="resultMapPedido" class="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN">
-      <result property ="CodigoPedido"                                      column="PDE_CAN"/>
-      <result property ="DireccionPedido"                                   column="PDE_SUB"/>
+      <result property ="CodigoPedido"                                      column="PED_COD"/>
+      <result property ="DireccionPedido"                                   column="PED_DIR"/>
       <result property ="FechaPedido"                                       column="PED_FEC"/>
-      <result property ="TotalPedido"                                       column="PED_TOTAL"/>
+      <result property ="PrecioTotalPedido"                                 column="PED_TOTAL"/>
       <result property ="Usuario.CodigoUsuario"                             column="USU_COD"/>
       <result property ="Usuario.NombreUsuario"                             column="USU_NOM"/>
-      <result property ="Usuario.CelularUsuario"                            column="USU_EMAIL"/>
+      <result property ="Usuario.CelularUsuario"                            column="USU_CEL"/>
+      <result property ="Usuario.CorreoUsuario"                             column="USU_EMAIL"/>
     </resultMap>
     <resultMap id="resultMapPedidoDetalle" class="ProyectoAndroid.Dominio.Entidad.Pedido.PedidoEN">
       <result property ="PedidoDetalle.Articulo.NombreArticulo"             column="ART_NOM" />
@@ -43,6 +44,11 @@
       <parameter property="PDE_ART_COD"   direction="input"/>
       <parameter property="PDE_CAN"       direction="input"/>
     </parameterMap>
+
+    <parameterMap id="paramPedidoSEL">
+      <parameter property="USU_COD" direction="input"/>
+    </parameterMap>
+    
     <parameterMap id="paramPedidoDetalleSEL">
       <parameter property="PDE_PED_COD"   direction="input"/>
     </parameterMap>
@@ -65,7 +71,10 @@
     <procedure id="uspPedidoINS"  parameterMap="paramPedidoINS">
       USP_TB_PEDIDO_INS
     </procedure>
-
+    <procedure id="uspPedidoSEL" parameterMap="paramPedidoSEL" resultMap="resultMapPedido">
+      USP_TB_PEDIDO_SEL
+    </procedure>
+    
     <procedure id="uspPedidoDetalleINS" parameterMap="paramPedidoDetalleINS">
       USP_TB_PEDIDO_DETALLE_INS
     </procedure>

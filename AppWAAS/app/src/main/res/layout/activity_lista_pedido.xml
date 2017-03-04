@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.proyecto.wasa.proyectoandroid.ListaArticuloActivity"
-    android:orientation="vertical">
+    tools:context="com.proyecto.wasa.proyectoandroid.ListaPedidoActivity">
     <LinearLayout
         android:id="@+id/LCABEZERA"
         android:layout_width="match_parent"
@@ -16,37 +15,31 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/txtCodigoArticulo"
+            android:id="@+id/txtCodigoPedido"
             android:text="Codigo"
-            android:layout_weight="0.5"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNombreArticulo"
-            android:text="Nombre"
             android:layout_weight="1"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/txtDescripcionArticulo"
-            android:text="Descripcion"
+            android:id="@+id/txtDireccionPedido"
+            android:text="Direccion"
             android:layout_weight="1"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/txtPrecioArticulo"
-            android:text="Precio"
-            android:layout_weight="0.7"
+            android:id="@+id/txtFechaPedido"
+            android:text="Fecha"
+            android:layout_weight="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTotalPedido"
+            android:text="Total"
+            android:layout_weight="1"
             android:textStyle="bold"/>
     </LinearLayout>
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lv_deslizable"
-        android:layout_below="@id/LCABEZERA"/>
-
 </RelativeLayout>

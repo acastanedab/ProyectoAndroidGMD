@@ -13,9 +13,9 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
 
         public long CodigoPedido { get; set; }
         
-        public DateTime FechaPedido { get; set; }
+        public DateTime? FechaPedido { get; set; }
         public string DireccionPedido { get; set; }
-        public decimal PrecioPedido { get; set; }
+        public decimal PrecioTotalPedido { get; set; }
         public UsuarioEN Usuario { get; set; }
         public PedidoDetalleEN PedidoDetalle { get; set; }
         public PedidoSeguimientoEN PedidoSeguimiento { get; set; }
@@ -45,7 +45,27 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
             }
             return (int)pedido.Estado;
         }
-
+        public List<PedidoEN> ListarPedido(long codigoUsuario)
+        {
+            try
+            {
+                IDictionary map = new Dictionary<string, Object>();
+                map.Add("USU_COD", codigoUsuario);
+                IList Lista = Mapper.Mapper.Instance().QueryForList("uspPedidoSEL", map);
+                var lista = new List<PedidoEN>(Lista.Cast<PedidoEN>());
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                var lista = new List<PedidoEN>();
+                foreach (var item in lista)
+                {
+                    item.Mensaje = ex.Message;
+                    item.Estado = -1;
+                }
+                return lista;
+            }
+        }
         #region PedidoDetalle
         public int RegistrarPedidoDetalle(PedidoEN pedido)
         {

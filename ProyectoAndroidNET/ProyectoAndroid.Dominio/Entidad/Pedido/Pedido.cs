@@ -9,8 +9,9 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
     {
         int RegistrarPedido(PedidoEN pedido);
         int RegistrarPedidoDetalle(PedidoEN pedido);
-        List<PedidoEN> ListarPedidoDetalle(long codigoPedido);
         int RegistrarPedidoSeguimiento(PedidoEN pedido);
+        List<PedidoEN> ListarPedido(long codigoUsuario);
+        List<PedidoEN> ListarPedidoDetalle(long codigoPedido);
         List<PedidoEN> ListarPedidoSeguimiento(long codigoPedido);
     }
 }

@@ -51,7 +51,7 @@ public class ArticuloAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.pedido_item,null);
+            convertView = inflater.inflate(R.layout.articulo_item,null);
 
             holder = new ViewHolder();
             holder.textViewCodigoArticulo = (TextView)convertView.findViewById(R.id.txtCodigoArticulo);
