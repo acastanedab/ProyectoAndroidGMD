@@ -118,9 +118,11 @@ public class LoginActivity extends AppCompatActivity {
                         String usuario =response.body().getNombreUsuario();
                         String email = response.body().getCorreoUsuario();
                         String celuar = response.body().getCelularUsuario();
+                        long codigo = response.body().getCodigoUsuario();
                         editor.putString("Usuario", usuario);
                         editor.putString("Email", email);
                         editor.putString("Celular", celuar);
+                        editor.putLong("Codigo", codigo);
                         editor.commit();
 
                         Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
