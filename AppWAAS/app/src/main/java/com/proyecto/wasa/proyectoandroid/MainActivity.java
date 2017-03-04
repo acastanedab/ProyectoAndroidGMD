@@ -1,6 +1,8 @@
 package com.proyecto.wasa.proyectoandroid;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
@@ -33,8 +35,12 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+        boolean islogin=sharedpreferences.getBoolean("IsLogin", false);
+        if(!islogin) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
         getSupportActionBar().setTitle(R.string.app_name_home);
 
         HomeFragment homeFragment = new HomeFragment();
@@ -108,7 +114,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-
+            SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean("IsLogin", false);
+            editor.commit();
             return true;
         }
         return super.onOptionsItemSelected(item);

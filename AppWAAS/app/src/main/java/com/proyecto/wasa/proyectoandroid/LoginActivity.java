@@ -123,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("Email", email);
                         editor.putString("Celular", celuar);
                         editor.putLong("Codigo", codigo);
+                        editor.putBoolean("IsLogin", true);
                         editor.commit();
 
                         Toast.makeText(LoginActivity.this, "Acceso con existo al Usuario: " + response.body().getNombreUsuario() , Toast.LENGTH_LONG).show();
