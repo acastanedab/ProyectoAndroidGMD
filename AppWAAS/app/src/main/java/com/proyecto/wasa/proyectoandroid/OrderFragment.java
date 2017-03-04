@@ -12,6 +12,13 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.proyecto.wasa.proyectoandroid.Adapter.ArrayAdapterFactory;
+import com.proyecto.wasa.proyectoandroid.Entidades.Pedido;
+import com.proyecto.wasa.proyectoandroid.Entidades.PedidoSeguimiento;
+import com.proyecto.wasa.proyectoandroid.Servicios.PedidoService;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,6 +27,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -98,10 +112,41 @@ public class OrderFragment extends Fragment {
 
 
     public void btnGetPlaces(View view) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new ArrayAdapterFactory())
+                .create();
+        String URL = getString(R.string.url);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
         EditText txtPostalCode = (EditText) view.findViewById(R.id.txtPostalCode);
         int a = Integer.parseInt(txtPostalCode.getEditableText().toString());
-        //new ReadPlacesFeedTask().execute("http://localhost:1270/api/Seguimiento/BuscarSeguimientoArticulo/" + a);
-        new ReadPlacesFeedTask().execute("http://www.kallpasedano.com/proyecto/api/Seguimiento/BuscarSeguimientoArticulo/" + a);
+        PedidoService pedidoService = retrofit.create(PedidoService.class);
+        Call<List<Pedido>> call =  pedidoService.ListarPedidoSeguimiento((long) a);
+
+        call.enqueue(new Callback<List<Pedido>>() {
+                         @Override
+                         public void onResponse(Call<List<Pedido>> call, Response<List<Pedido>> response) {
+                       /*      List<PedidoSeguimiento> pedidoSeguimientos= new List<PedidoSeguimiento>();
+
+                             for(int i=0; i<response.body().size();i++) {
+
+                                 response.body().get(1).getPedidoSeguimiento().getLatitudPedidoSeguimiento();
+                             }
+
+*/
+                         }
+                         @Override
+                         public void onFailure(Call<List<Pedido>> call, Throwable t) {
+                             //Toast.makeText(OrderFragment.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                         }
+                     });
+
+
+                //new ReadPlacesFeedTask().execute("http://localhost:1270/api/Seguimiento/BuscarSeguimientoArticulo/" + a);
+//        new ReadPlacesFeedTask().execute("http://www.kallpasedano.com/proyecto/api/Seguimiento/BuscarSeguimientoArticulo/" + a);
     }
     public String readJSONFeed(String desiredUrl) {
 

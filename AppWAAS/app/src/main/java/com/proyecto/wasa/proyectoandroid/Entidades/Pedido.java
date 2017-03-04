@@ -73,14 +73,17 @@ public class Pedido  implements Serializable {
     }
 
     public PedidoDetalle getPedidoDetalle() {
+
         return PedidoDetalle;
     }
 
     public void setPedidoDetalle(PedidoDetalle pedidoDetalle) {
+
         PedidoDetalle = pedidoDetalle;
     }
 
     public PedidoSeguimiento getPedidoSeguimiento() {
+
         return PedidoSeguimiento;
     }
 
