@@ -56,4 +56,10 @@ public class Articulo  implements Serializable {
     public void setEstado(int estado) {
         Estado = estado;
     }
+
+    @Override
+    public String toString(){
+        return NombreArticulo;
+    }
+
 }

@@ -164,7 +164,9 @@
     <Content Include="providers.config" />
     <None Include="Properties\PublishProfiles\appWeb.pubxml" />
     <Content Include="Recurso\Articulo.xml" />
-    <Content Include="Recurso\Pedido.xml" />
+    <Content Include="Recurso\Pedido.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Recurso\Usuario.xml">
       <SubType>Designer</SubType>
     </Content>

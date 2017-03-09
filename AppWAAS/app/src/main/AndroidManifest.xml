@@ -18,7 +18,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,11 +28,11 @@
             android:name=".SingAccountActivity"
             android:theme="@style/AppTheme.Dark" />
         <activity android:name=".GpsTestActivity" />
-        <activity android:name=".ListaArticuloActivity"></activity>
+        <activity android:name=".ListaArticuloActivity" />
 
         <service android:name=".Servicios.ServicioGPS" />
 
-        <activity android:name=".ListaPedidoActivity"></activity>
+        <activity android:name=".ListaPedidoActivity" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -49,7 +48,13 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".RegistrarPedidoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
