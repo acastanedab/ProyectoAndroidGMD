@@ -23,6 +23,10 @@ namespace ProyectoAndroid.Controllers
         public Object RegistrarPedido(PedidoEN pedidoEN)
         {
             pedido.RegistrarPedido(pedidoEN);
+            if (pedidoEN.CodigoPedido != 0)
+            {
+                pedido.RegistrarPedidoDetalle(pedidoEN);
+            }
             return pedidoEN;
         }
 

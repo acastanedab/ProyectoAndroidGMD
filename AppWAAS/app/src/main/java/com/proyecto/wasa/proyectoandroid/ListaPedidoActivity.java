@@ -43,7 +43,7 @@ public class ListaPedidoActivity extends AppCompatActivity {
                 .build();
 
         //variable temporal eliminar apenas se implemente el Intent Usuario
-        //long codigoUsuario=1;
+        // long codigoUsuario=1;
         SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
         long codigoUsuario =sharedpreferences.getLong("Codigo",0);
         PedidoService pedidoService = retrofit.create(PedidoService.class);

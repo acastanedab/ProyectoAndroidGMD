@@ -14,13 +14,15 @@ public class Pedido  implements Serializable {
     private Usuario Usuario;
     private PedidoDetalle PedidoDetalle;
     private PedidoSeguimiento PedidoSeguimiento;
-
+    private String Mensaje;
+    private int Estado;
 
     public  Pedido() {
         setPedidoDetalle(new PedidoDetalle());
         setPedidoSeguimiento(new PedidoSeguimiento());
         setPedidoDetalle(new PedidoDetalle());
         setPedidoSeguimiento(new PedidoSeguimiento());
+        setUsuario(new Usuario());
     }
 
 
@@ -82,5 +84,21 @@ public class Pedido  implements Serializable {
 
     public void setPedidoSeguimiento(com.proyecto.wasa.proyectoandroid.Entidades.PedidoSeguimiento pedidoSeguimiento) {
         PedidoSeguimiento = pedidoSeguimiento;
+    }
+
+    public String getMensaje() {
+        return Mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        Mensaje = mensaje;
+    }
+
+    public int getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(int estado) {
+        Estado = estado;
     }
 }

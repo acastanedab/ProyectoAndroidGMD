@@ -34,8 +34,8 @@
   
   <parameterMaps>
     <parameterMap id="paramPedidoINS">
+      <parameter property="PED_USU_COD" direction="input"/>
       <parameter property="PED_DIR" direction="input"/>
-      <parameter property="PED_USU" direction="input"/>
     </parameterMap>
 
 

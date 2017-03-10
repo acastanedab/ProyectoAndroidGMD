@@ -13,6 +13,9 @@ public class PedidoDetalle implements Serializable{
     private double SubTotalPedidoDetalle;
     private Articulo Articulo;
 
+    public PedidoDetalle(){
+        setArticulo(new Articulo());
+    }
 
     public long getCodigoPedidoDetalle() {
         return CodigoPedidoDetalle;

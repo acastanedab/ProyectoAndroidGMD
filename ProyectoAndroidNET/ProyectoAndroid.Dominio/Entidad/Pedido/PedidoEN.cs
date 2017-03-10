@@ -32,8 +32,8 @@ namespace ProyectoAndroid.Dominio.Entidad.Pedido
             try
             {
                 IDictionary map = new Dictionary<string, Object>();
+                map.Add("PED_USU_COD", pedido.Usuario.CodigoUsuario);
                 map.Add("PED_DIR", pedido.DireccionPedido);
-                map.Add("PED_USU", pedido.Usuario.CodigoUsuario);
                 pedido.CodigoPedido = (long) Mapper.Mapper.Instance().Insert("uspPedidoINS", map);
                 pedido.Estado = 1;
                 pedido.Mensaje = "OK";

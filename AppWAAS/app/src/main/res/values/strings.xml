@@ -17,9 +17,9 @@
     <string name="hello_blank_fragment">Bienvenido Pedidos WAAS</string>
     <!--
 
-    <string name="url">http://192.168.1.15/ProyectoAndroidWebApi/api/</string>
+   <string name="url">http://192.168.1.18/ProyectoAndroidWebApi/api/</string>
      -->
-
     <string name="url">http://www.kallpasedano.com/proyecto/api/</string>
+
     <string name="title_activity_maps">Map</string>
 </resources>
